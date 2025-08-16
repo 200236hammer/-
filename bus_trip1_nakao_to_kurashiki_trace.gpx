@@ -33193,6 +33193,10 @@
     <name>三原駅</name>
     <desc>［降車時刻］8:23</desc>
   </wpt>
+    <wpt lat="34.400254336" lon="133.082681363">
+    <name>三原駅</name>
+    <desc>［乗車時刻］9:06</desc>
+  </wpt>
   <wpt lat="34.397899999" lon="133.156390004">
     <name>上福地</name>
     <desc>［降車時刻］9:31</desc>
@@ -33247,11 +33251,11 @@
   </wpt>
   <wpt lat="34.50569" lon="133.53661">
     <name>［徒歩］今井入口</name>
-    <desc>［乗車時刻］15:27</desc>
+    <desc>［出発時刻］15:27</desc>
   </wpt>
   <wpt lat="34.50767" lon="133.55078">
     <name>［徒歩］里庄駅</name>
-    <desc>［降車時刻］15:51</desc>
+    <desc>［到着時刻］15:51</desc>
   </wpt>
   <wpt lat="34.507661767" lon="133.550748825">
     <name>里庄駅</name>
