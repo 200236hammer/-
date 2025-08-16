@@ -33044,13 +33044,13 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="33.933270593" lon="131.274441183">
-    <name>［降車時刻］山口宇部空港</name>
-    <desc>13:46</desc>
+    <name>山口宇部空港</name>
+    <desc>［降車時刻］13:46</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="33.933270593" lon="131.274441183">
-    <name>［乗車時刻］山口宇部空港</name>
-    <desc>14:15</desc>
+    <name>山口宇部空港</name>
+    <desc>［乗車時刻］14:15</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.094470052" lon="131.396480016">
