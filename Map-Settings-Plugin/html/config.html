@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>設定画面（完全版）</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="tabs">
+  <button type="button" class="tab-button active" data-tab="record">レコード画面</button>
+  <button type="button" class="tab-button" data-tab="list">一覧画面</button>
+</div>
+
+<div id="tab-contents">
+
+  <!-- レコード画面設定 -->
+  <div class="tab-content active" id="tab-record">
+    <div>
+      <label>Google Maps APIキー（共通）</label>
+      <input type="text" id="apiKey" placeholder="APIキー入力"/>
+    </div>
+    <div class="record-configs">
+      <button type="button" id="add-record-config">＋ 設定追加</button>
+    </div>
+  </div>
+
+  <!-- 一覧画面設定 -->
+  <div class="tab-content" id="tab-list">
+    <div>
+      <label>Google Maps APIキー（共通）</label>
+      <input type="text" id="apiKeyList" placeholder="APIキー入力"/>
+    </div>
+    <div class="list-configs">
+      <button type="button" id="add-list-config">＋ 設定追加</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- テンプレート群 -->
+<template id="config-template">
+  <div class="config-item">
+    <button type="button" class="remove-config" style="float:right;">－ 設定削除</button>
+
+    <div class="id-wrapper">
+      <label class="id-label"></label>
+      <input type="text" class="recordOrViewId">
+    </div>
+
+    <div class="gpx-wrapper">
+      <label>GPX URL:</label>
+      <div class="gpx-list"></div>
+      <button type="button" class="add-gpx">＋ GPX追加</button>
+    </div>
+
+    <div class="types-wrapper">
+      <label>区分セット:</label>
+      <div class="types-list"></div>
+      <button type="button" class="add-type-set">＋</button>
+    </div>
+
+    <div class="multi-wrapper">
+      <label>除去文字列:</label>
+      <div class="removeStrs-list"></div>
+      <button type="button" class="add-removeStr">＋</button>
+    </div>
+
+    <div class="multi-wrapper">
+      <label>地点クリック表示:</label>
+      <div class="pointKintone-list"></div>
+      <button type="button" class="add-pointKintone">＋</button>
+    </div>
+
+    <div class="multi-wrapper">
+      <label>ルートクリック表示:</label>
+      <div class="routeKintone-list"></div>
+      <button type="button" class="add-routeKintone">＋</button>
+    </div>
+
+    <div>
+      <label>距離100m未満黒線:</label>
+      <select class="blackIfShort">
+        <option value="true">する</option>
+        <option value="false">しない</option>
+      </select>
+    </div>
+  </div>
+</template>
+
+<template id="gpx-item-template">
+  <div class="inline-input">
+    <input type="text" class="gpxUrl" placeholder="GPX URL">
+    <button type="button" class="remove-btn">－</button>
+  </div>
+</template>
+
+<template id="type-set-template">
+  <div class="type-set-item">
+    <input type="text" class="type-name" placeholder="区分名">
+    <input type="text" class="type-color" placeholder="#FF0000">
+    <select class="line-type">
+      <option value="solid">実線</option>
+      <option value="dashed">破線</option>
+      <option value="wave">波線</option>
+    </select>
+    <select class="legend">
+      <option value="true">凡例表示する</option>
+      <option value="false">凡例表示しない</option>
+    </select>
+    <input type="text" class="icon-url" placeholder="アイコンURL">
+    <button type="button" class="remove-type-set">－</button>
+  </div>
+</template>
+
+<template id="info-item-template">
+  <div class="info-item">
+    <select class="data-source">
+      <option value="kintone">kintone</option>
+      <option value="gpx">GPX</option>
+    </select>
+    <input type="text" class="field-name" placeholder="項目名">
+    <div class="display-names-wrapper">
+      <input type="text" class="display-name" placeholder="表示名">
+      <button type="button" class="add-display-name">＋</button>
+    </div>
+    <button type="button" class="move-up">↑</button>
+    <button type="button" class="move-down">↓</button>
+    <button type="button" class="remove-info-item">－</button>
+  </div>
+</template>
+
+<script src="script.js"></script>
+</body>
+</html>

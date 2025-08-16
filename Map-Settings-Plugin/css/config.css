@@ -1,0 +1,11 @@
+.tab-button { margin-right:4px; }
+.tab-button.active { font-weight:bold; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+.config-item { margin-bottom:10px; padding:5px; border:1px solid #ccc; }
+.inline-input { display:flex; align-items:center; margin:4px 0; gap:4px; }
+.inline-input input { margin-right:4px; }
+.inline-input button { margin-left:4px; }
+.info-item { display:flex; align-items:center; gap:4px; margin:4px 0; border:1px solid #ccc; padding:4px; flex-wrap:wrap; }
+.display-names-wrapper { display:flex; gap:4px; flex-wrap:wrap; }
+.id-label { margin-right:4px; }

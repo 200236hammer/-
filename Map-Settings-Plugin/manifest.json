@@ -1,0 +1,42 @@
+{
+  "manifest_version": 1,
+  "version": "1.0.0",
+  "type": "APP",
+    "name": {
+        "en": "Map Settings Plugin",
+        "ja": "マップ設定プラグイン"
+    },
+  "description": "kintone のレコード画面・一覧画面でマップ設定を行い、GPXや地点クリック・ルートクリックを管理するプラグインです。",
+  "icon": "image/icon.png",
+      "homepage_url":{
+        "ja":"http://www.tis2010.jp/",
+        "en":"http://www.tis2010.jp/"
+    },
+  "desktop": {
+    "js": [
+      "js/script.js"
+    ],
+    "css": [
+      "css/style.css"
+    ],
+    "html": [
+      "html/index.html"
+    ]
+  },
+  "mobile": {
+    "js": [
+      "js/script.js"
+    ],
+    "css": [
+      "css/style.css"
+    ],
+    "html": [
+      "html/index.html"
+    ]
+  },
+  "config": {
+    "html": "html/index.html",
+    "js": ["js/script.js"],
+    "css": ["css/style.css"]
+  }
+}
