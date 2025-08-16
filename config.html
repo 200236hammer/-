@@ -1,16 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>設定画面（完全版）</title>
+<style>
+.tab-button { margin-right:4px; }
+.tab-button.active { font-weight:bold; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+.config-item { margin-bottom:10px; padding:5px; border:1px solid #ccc; }
+.inline-input { display:flex; align-items:center; margin:4px 0; gap:4px; }
+.inline-input input { margin-right:4px; }
+.inline-input button { margin-left:4px; }
+.info-item { display:flex; align-items:center; gap:4px; margin:4px 0; border:1px solid #ccc; padding:4px; flex-wrap:wrap; }
+.display-names-wrapper { display:flex; gap:4px; flex-wrap:wrap; }
+.id-label { margin-right:4px; }
+</style>
+</head>
+<body>
+
 <div id="tabs">
   <button type="button" class="tab-button active" data-tab="record">レコード画面</button>
   <button type="button" class="tab-button" data-tab="list">一覧画面</button>
 </div>
 
 <div id="tab-contents">
+
   <!-- レコード画面設定 -->
   <div class="tab-content active" id="tab-record">
     <div>
-      <label>APIキー（共通）</label>
-      <input type="text" id="apiKey" />
+      <label>Google Maps APIキー（共通）</label>
+      <input type="text" id="apiKey" placeholder="APIキー入力"/>
     </div>
-
     <div class="record-configs">
       <button type="button" id="add-record-config">＋ 設定追加</button>
     </div>
@@ -19,82 +40,219 @@
   <!-- 一覧画面設定 -->
   <div class="tab-content" id="tab-list">
     <div>
-      <label>APIキー（共通）</label>
-      <input type="text" id="apiKeyList" />
+      <label>Google Maps APIキー（共通）</label>
+      <input type="text" id="apiKeyList" placeholder="APIキー入力"/>
     </div>
-
     <div class="list-configs">
       <button type="button" id="add-list-config">＋ 設定追加</button>
     </div>
   </div>
+
 </div>
 
-<!-- 設定テンプレート（複製用） -->
+<!-- 設定テンプレート -->
 <template id="config-template">
-  <div class="config-item" style="border:1px solid #ccc; margin:8px; padding:8px;">
-    <button type="button" class="remove-config" style="float:right;">－</button>
-    <div><label>GPX URL:</label> <input type="text" class="gpxUrl" /></div>
-    <div><label>ビューID / レコードID:</label> <input type="text" class="viewOrRecordId" /></div>
-    <div><label>区分:</label> <input type="text" class="types" placeholder="複数可,カンマ区切り"/></div>
-    <div><label>ルート色:</label> <input type="text" class="routeColors" placeholder="#FF0000,#00FF00..." /></div>
-    <div><label>フィールドID:</label> <input type="text" class="fieldIds" placeholder="複数可,カンマ区切り"/></div>
-    <div><label>除去文字列:</label> <input type="text" class="removeStrs" placeholder="複数可,カンマ区切り"/></div>
-    <div><label>トラックポイント使用:</label>
-      <select class="useTrackPoints">
-        <option value="true">使用する</option>
-        <option value="false">使用しない</option>
-      </select>
+  <div class="config-item">
+    <button type="button" class="remove-config" style="float:right;">－ 設定削除</button>
+
+    <div class="id-wrapper">
+      <label class="id-label"></label>
+      <input type="text" class="recordOrViewId">
     </div>
-    <div><label>ルート線種類:</label> <input type="text" class="lineTypes" placeholder="区分ごとに,カンマ区切り"/></div>
-    <div><label>地点クリック表示（kintone）:</label> <input type="text" class="pointKintoneFields" placeholder="項目:表示名,カンマ区切り"/></div>
-    <div><label>地点クリック表示（GPX）:</label> <input type="text" class="pointGpxFields" placeholder="項目:表示名,カンマ区切り"/></div>
-    <div><label>距離100m未満黒線:</label>
+
+    <div class="gpx-wrapper">
+      <label>GPX URL:</label>
+      <div class="gpx-list"></div>
+      <button type="button" class="add-gpx">＋ GPX追加</button>
+    </div>
+
+    <div class="types-wrapper">
+      <label>区分セット:</label>
+      <div class="types-list"></div>
+      <button type="button" class="add-type-set">＋</button>
+    </div>
+
+    <div class="multi-wrapper">
+      <label>除去文字列:</label>
+      <div class="removeStrs-list"></div>
+      <button type="button" class="add-removeStr">＋</button>
+    </div>
+
+    <div class="multi-wrapper">
+      <label>地点クリック表示:</label>
+      <div class="pointKintone-list"></div>
+      <button type="button" class="add-pointKintone">＋</button>
+    </div>
+
+    <div class="multi-wrapper">
+      <label>ルートクリック表示:</label>
+      <div class="routeKintone-list"></div>
+      <button type="button" class="add-routeKintone">＋</button>
+    </div>
+
+    <div>
+      <label>距離100m未満黒線:</label>
       <select class="blackIfShort">
         <option value="true">する</option>
         <option value="false">しない</option>
       </select>
     </div>
-    <div><label>ルートクリック表示（kintone）:</label> <input type="text" class="routeKintoneFields" placeholder="項目:表示名,カンマ区切り"/></div>
-    <div><label>ルートクリック表示（GPX）:</label> <input type="text" class="routeGpxFields" placeholder="項目:表示名,カンマ区切り"/></div>
-    <div><label>凡例表示:</label>
-      <select class="useLegend">
-        <option value="true">表示する</option>
-        <option value="false">表示しない</option>
-      </select>
-    </div>
-    <div><label>区分ごとのアイコンURL:</label> <input type="text" class="iconUrls" placeholder="区分:URL,カンマ区切り"/></div>
   </div>
 </template>
 
-<style>
-.tab-button { margin-right:4px; }
-.tab-button.active { font-weight:bold; }
-.tab-content { display:none; }
-.tab-content.active { display:block; }
-</style>
+<!-- GPX URL アイテム -->
+<template id="gpx-item-template">
+  <div class="inline-input">
+    <input type="text" class="gpxUrl" placeholder="GPX URL">
+    <button type="button" class="remove-btn">－</button>
+  </div>
+</template>
+
+<!-- 区分セットテンプレート -->
+<template id="type-set-template">
+  <div class="type-set-item">
+    <input type="text" class="type-name" placeholder="区分名">
+    <input type="text" class="type-color" placeholder="#FF0000">
+    <select class="line-type">
+      <option value="solid">実線</option>
+      <option value="dashed">破線</option>
+      <option value="wave">波線</option>
+    </select>
+    <select class="legend">
+      <option value="true">凡例表示する</option>
+      <option value="false">凡例表示しない</option>
+    </select>
+    <input type="text" class="icon-url" placeholder="アイコンURL">
+    <button type="button" class="remove-type-set">－</button>
+  </div>
+</template>
+
+<!-- InfoWindow用テンプレート -->
+<template id="info-item-template">
+  <div class="info-item">
+    <select class="data-source">
+      <option value="kintone">kintone</option>
+      <option value="gpx">GPX</option>
+    </select>
+    <input type="text" class="field-name" placeholder="項目名">
+    <div class="display-names-wrapper">
+      <input type="text" class="display-name" placeholder="表示名">
+      <button type="button" class="add-display-name">＋</button>
+    </div>
+    <button type="button" class="move-up">↑</button>
+    <button type="button" class="move-down">↓</button>
+    <button type="button" class="remove-info-item">－</button>
+  </div>
+</template>
 
 <script>
-document.querySelectorAll('.tab-button').forEach(btn=>{
-  btn.addEventListener('click', ()=>{
-    document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const tab = btn.dataset.tab;
-    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
-    document.getElementById('tab-'+tab).classList.add('active');
-  });
-});
+document.addEventListener('DOMContentLoaded', function(){
 
-function addConfig(containerClass){
-  const container = document.querySelector(containerClass);
-  const template = document.getElementById('config-template').content.cloneNode(true);
-  container.appendChild(template);
-  container.querySelectorAll('.remove-config').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      btn.parentElement.remove();
+  let currentTab = 'record';
+
+  // --- タブ切替 ---
+  document.querySelectorAll('.tab-button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+      currentTab = btn.dataset.tab;
     });
   });
-}
 
-document.getElementById('add-record-config').addEventListener('click', ()=>addConfig('.record-configs'));
-document.getElementById('add-list-config').addEventListener('click', ()=>addConfig('.list-configs'));
+  // --- InfoItem 設定 ---
+  function setupInfoItem(item){
+    item.querySelector('.remove-info-item').onclick = ()=>item.remove();
+    item.querySelector('.move-up').onclick = ()=>{
+      const prev = item.previousElementSibling;
+      if(prev) item.parentNode.insertBefore(item, prev);
+    };
+    item.querySelector('.move-down').onclick = ()=>{
+      const next = item.nextElementSibling;
+      if(next) item.parentNode.insertBefore(next, item);
+    };
+    item.querySelector('.add-display-name').onclick = ()=>{
+      const wrapper = item.querySelector('.display-names-wrapper');
+      const input = document.createElement('input');
+      input.type='text'; input.className='display-name'; input.placeholder='表示名';
+      wrapper.appendChild(input);
+    };
+  }
+
+  function setupMultiAdd(btn, listClass, templateId){
+    btn.onclick = ()=>{
+      const wrapper = btn.parentNode.querySelector(listClass);
+      const t = document.getElementById(templateId).content.cloneNode(true);
+      wrapper.appendChild(t);
+      const last = wrapper.lastElementChild;
+      const removeBtn = last.querySelector('.remove-btn');
+      if(removeBtn) removeBtn.onclick = ()=>last.remove();
+    }
+  }
+
+  function setupTypeSet(btn, listClass){
+    btn.onclick = ()=>{
+      const wrapper = btn.parentNode.querySelector(listClass);
+      const t = document.getElementById('type-set-template').content.cloneNode(true);
+      wrapper.appendChild(t);
+      const last = wrapper.lastElementChild;
+      last.querySelector('.remove-type-set').onclick = ()=>last.remove();
+    }
+  }
+
+  // --- 設定追加 ---
+  function addConfig(containerClass, copyFrom){
+    const container = document.querySelector(containerClass);
+    const t = document.getElementById('config-template').content.cloneNode(true);
+    container.appendChild(t);
+    const config = container.lastElementChild;
+
+    // ラベル切替
+    const label = config.querySelector('.id-label');
+    label.textContent = currentTab==='record'?'レコードID:':'ビューID:';
+
+    // コピー
+    if(copyFrom){
+      const copyId = copyFrom.querySelector('.recordOrViewId')?.value;
+      config.querySelector('.recordOrViewId').value = copyId || '';
+    }
+
+    // 削除
+    config.querySelector('.remove-config').onclick = ()=>config.remove();
+
+    // GPX URL
+    setupMultiAdd(config.querySelector('.add-gpx'), '.gpx-list','gpx-item-template');
+
+    // 区分セット
+    setupTypeSet(config.querySelector('.add-type-set'), '.types-list');
+
+    // 除去文字列
+    setupMultiAdd(config.querySelector('.add-removeStr'), '.removeStrs-list','gpx-item-template');
+
+    // 地点クリック表示
+    const pointBtn = config.querySelector('.add-pointKintone');
+    pointBtn.onclick = ()=>{
+      const wrapper = config.querySelector('.pointKintone-list');
+      const t = document.getElementById('info-item-template').content.cloneNode(true);
+      wrapper.appendChild(t);
+      setupInfoItem(wrapper.lastElementChild);
+    };
+
+    // ルートクリック表示
+    const routeBtn = config.querySelector('.add-routeKintone');
+    routeBtn.onclick = ()=>{
+      const wrapper = config.querySelector('.routeKintone-list');
+      const t = document.getElementById('info-item-template').content.cloneNode(true);
+      wrapper.appendChild(t);
+      setupInfoItem(wrapper.lastElementChild);
+    };
+  }
+
+  document.getElementById('add-record-config').onclick = ()=>addConfig('.record-configs');
+  document.getElementById('add-list-config').onclick = ()=>addConfig('.list-configs');
+
+});
 </script>
+</body>
+</html>
