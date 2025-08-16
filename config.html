@@ -1,0 +1,100 @@
+<div id="tabs">
+  <button type="button" class="tab-button active" data-tab="record">レコード画面</button>
+  <button type="button" class="tab-button" data-tab="list">一覧画面</button>
+</div>
+
+<div id="tab-contents">
+  <!-- レコード画面設定 -->
+  <div class="tab-content active" id="tab-record">
+    <div>
+      <label>APIキー（共通）</label>
+      <input type="text" id="apiKey" />
+    </div>
+
+    <div class="record-configs">
+      <button type="button" id="add-record-config">＋ 設定追加</button>
+    </div>
+  </div>
+
+  <!-- 一覧画面設定 -->
+  <div class="tab-content" id="tab-list">
+    <div>
+      <label>APIキー（共通）</label>
+      <input type="text" id="apiKeyList" />
+    </div>
+
+    <div class="list-configs">
+      <button type="button" id="add-list-config">＋ 設定追加</button>
+    </div>
+  </div>
+</div>
+
+<!-- 設定テンプレート（複製用） -->
+<template id="config-template">
+  <div class="config-item" style="border:1px solid #ccc; margin:8px; padding:8px;">
+    <button type="button" class="remove-config" style="float:right;">－</button>
+    <div><label>GPX URL:</label> <input type="text" class="gpxUrl" /></div>
+    <div><label>ビューID / レコードID:</label> <input type="text" class="viewOrRecordId" /></div>
+    <div><label>区分:</label> <input type="text" class="types" placeholder="複数可,カンマ区切り"/></div>
+    <div><label>ルート色:</label> <input type="text" class="routeColors" placeholder="#FF0000,#00FF00..." /></div>
+    <div><label>フィールドID:</label> <input type="text" class="fieldIds" placeholder="複数可,カンマ区切り"/></div>
+    <div><label>除去文字列:</label> <input type="text" class="removeStrs" placeholder="複数可,カンマ区切り"/></div>
+    <div><label>トラックポイント使用:</label>
+      <select class="useTrackPoints">
+        <option value="true">使用する</option>
+        <option value="false">使用しない</option>
+      </select>
+    </div>
+    <div><label>ルート線種類:</label> <input type="text" class="lineTypes" placeholder="区分ごとに,カンマ区切り"/></div>
+    <div><label>地点クリック表示（kintone）:</label> <input type="text" class="pointKintoneFields" placeholder="項目:表示名,カンマ区切り"/></div>
+    <div><label>地点クリック表示（GPX）:</label> <input type="text" class="pointGpxFields" placeholder="項目:表示名,カンマ区切り"/></div>
+    <div><label>距離100m未満黒線:</label>
+      <select class="blackIfShort">
+        <option value="true">する</option>
+        <option value="false">しない</option>
+      </select>
+    </div>
+    <div><label>ルートクリック表示（kintone）:</label> <input type="text" class="routeKintoneFields" placeholder="項目:表示名,カンマ区切り"/></div>
+    <div><label>ルートクリック表示（GPX）:</label> <input type="text" class="routeGpxFields" placeholder="項目:表示名,カンマ区切り"/></div>
+    <div><label>凡例表示:</label>
+      <select class="useLegend">
+        <option value="true">表示する</option>
+        <option value="false">表示しない</option>
+      </select>
+    </div>
+    <div><label>区分ごとのアイコンURL:</label> <input type="text" class="iconUrls" placeholder="区分:URL,カンマ区切り"/></div>
+  </div>
+</template>
+
+<style>
+.tab-button { margin-right:4px; }
+.tab-button.active { font-weight:bold; }
+.tab-content { display:none; }
+.tab-content.active { display:block; }
+</style>
+
+<script>
+document.querySelectorAll('.tab-button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+    document.getElementById('tab-'+tab).classList.add('active');
+  });
+});
+
+function addConfig(containerClass){
+  const container = document.querySelector(containerClass);
+  const template = document.getElementById('config-template').content.cloneNode(true);
+  container.appendChild(template);
+  container.querySelectorAll('.remove-config').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      btn.parentElement.remove();
+    });
+  });
+}
+
+document.getElementById('add-record-config').addEventListener('click', ()=>addConfig('.record-configs'));
+document.getElementById('add-list-config').addEventListener('click', ()=>addConfig('.list-configs'));
+</script>
