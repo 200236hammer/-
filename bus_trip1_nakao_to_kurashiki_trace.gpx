@@ -32972,274 +32972,309 @@
       </trkpt>
     </trkseg>
   </trk>
-  <wpt lat="33.866332418" lon="130.765137359">
-    <name>西鉄黒崎ＢＣ</name>
-    <desc>7:35</desc>
-  </wpt>
   <wpt lat="33.828980356" lon="130.742399544">
     <name>中尾小学校</name>
-    <desc>7:10</desc>
+    <desc>［乗車時刻］7:10</desc>
+  </wpt>
+  <wpt lat="33.866332418" lon="130.765137359">
+    <name>西鉄黒崎ＢＣ</name>
+    <desc>［降車時刻］7:35</desc>
   </wpt>
   <wpt lat="33.866512577" lon="130.765120536">
     <name>西鉄黒崎ＢＣ</name>
-    <desc>7:45</desc>
+    <desc>［乗車時刻］7:45</desc>
   </wpt>
   <wpt lat="33.88276" lon="130.88872">
     <name>砂津</name>
-    <desc>8:38</desc>
+    <desc>［降車時刻］8:38</desc>
+  </wpt>
+  <wpt lat="33.88276" lon="130.88872">
+    <name>砂津</name>
+    <desc>［乗車時刻］8:50desc>
   </wpt>
   <wpt lat="33.96085" lon="130.9626">
     <name>関門トンネル人道口</name>
-    <desc>9:37</desc>
+    <desc>［降車時刻］9:37</desc>
   </wpt>
   <wpt lat="33.960700872" lon="130.96258074">
-    <name>関門トンネル人道口</name>
-    <desc>9:37</desc>
+    <name>［徒歩］関門トンネル人道口</name>
+    <desc>［出発時刻］9:37</desc>
   </wpt>
   <wpt lat="33.965479351" lon="130.956588686">
-    <name>御裳川〔サンデン交通〕</name>
-    <desc>9:50</desc>
+    <name>［徒歩］御裳川</name>
+    <desc>［到着時刻］9:50</desc>
   </wpt>
   <wpt lat="33.9654838" lon="130.956591368">
-    <name>御裳川</name>
-    <desc>10:41</desc>
+    <name>御裳川〔サンデン交通〕</name>
+    <desc>［乗車時刻］10:41</desc>
   </wpt>
   <wpt lat="34.006797097" lon="131.184514761">
     <name>小野田駅</name>
-    <desc>11:59</desc>
+    <desc>［降車時刻］11:59</desc>
   </wpt>
   <wpt lat="34.002879801" lon="131.221600324">
     <name>宇部駅</name>
-    <desc>12:27</desc>
+    <desc>［乗車時刻］12:27</desc>
+  </wpt>
+  <wpt lat="34.00346497568884" lon="131.2069143367923">
+    <name>際波台東口</name>
+    <desc>［降車時刻］12:17desc>
   </wpt>
   <wpt lat="34.003608575" lon="131.206798553">
     <name>際波台東口</name>
-    <desc>12:22</desc>
+    <desc>［乗車時刻］12:22</desc>
   </wpt>
   <wpt lat="34.002883692" lon="131.221604347">
     <name>宇部駅</name>
-    <desc>12:40</desc>
+    <desc>［降車時刻］12:40</desc>
+    <sym>generic</sym>
+  </wpt>
+  <wpt lat="34.002883692" lon="131.221604347">
+    <name>宇部駅</name>
+    <desc>［乗車時刻］12:27</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="33.957768693" lon="131.241903305">
     <name>宇部新川駅</name>
-    <desc>13:15</desc>
+    <desc>［降車時刻］13:15</desc>
   </wpt>
   <wpt lat="33.957630757" lon="131.242520213">
     <name>宇部新川駅</name>
-    <desc>13:30</desc>
+    <desc>［乗車時刻］13:30</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="33.933270593" lon="131.274441183">
-    <name>山口宇部空港</name>
+    <name>［降車時刻］山口宇部空港</name>
     <desc>13:46</desc>
+    <sym>generic</sym>
+  </wpt>
+  <wpt lat="33.933270593" lon="131.274441183">
+    <name>［乗車時刻］山口宇部空港</name>
+    <desc>14:15<desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.094470052" lon="131.396480016">
     <name>新山口駅北口</name>
-    <desc>14:35</desc>
+    <desc>［降車時刻］14:35</desc>
   </wpt>
   <wpt lat="34.094540019" lon="131.396179944">
     <name>新山口駅</name>
+    <desc>［降車時刻］14:50</desc>
   </wpt>
   <wpt lat="34.165170509" lon="131.457949877">
     <name>湯田温泉</name>
-    <desc>15:16</desc>
+    <desc>［降車時刻］15:16</desc>
   </wpt>
   <wpt lat="34.163700059" lon="131.455470007">
     <name>下湯田</name>
-    <desc>16:09</desc>
+    <desc>［乗車時刻］16:09</desc>
   </wpt>
   <wpt lat="34.05393" lon="131.5687">
     <name>防府駅</name>
-    <desc>17:12</desc>
+    <desc>［降車時刻］17:12</desc>
   </wpt>
   <wpt lat="34.053919996" lon="131.568440124">
     <name>防府駅前</name>
-    <desc>18:10</desc>
+    <desc>［乗車時刻］18:10</desc>
   </wpt>
   <wpt lat="34.05149" lon="131.80359">
     <name>徳山駅前</name>
-    <desc>18:10</desc>
+    <desc>［降車時刻］18:10</desc>
   </wpt>
   <wpt lat="34.052059961" lon="131.803190075">
     <name>徳山駅前</name>
-    <desc>19:40</desc>
+    <desc>［乗車時刻］19:40</desc>
   </wpt>
   <wpt lat="34.033300106" lon="131.836299598">
     <name>久米［周南市］</name>
-    <desc>19:51</desc>
+    <desc>［降車時刻］19:51</desc>
   </wpt>
   <wpt lat="34.03330997" lon="131.836290043">
     <name>久米［周南市］</name>
-    <desc>6:51</desc>
+    <desc>［乗車時刻］6:51</desc>
   </wpt>
   <wpt lat="34.172110035" lon="132.224909943">
     <name>岩国駅</name>
-    <desc>8:48</desc>
+    <desc>［降車時刻］8:26</desc>
+  </wpt>
+  <wpt lat="34.172110035" lon="132.224909943">
+    <name>岩国駅</name>
+    <desc>［乗車時刻］8:48</desc>
   </wpt>
   <wpt lat="34.204279994" lon="132.227419987">
     <name>和木駅</name>
-    <desc>9:00</desc>
+    <desc>［降車時刻］9:00</desc>
   </wpt>
   <wpt lat="34.204119999" lon="132.227480002">
     <name>和木駅</name>
-    <desc>9:15</desc>
+    <desc>［乗車時刻］9:15</desc>
   </wpt>
   <wpt lat="34.206280036" lon="132.218580097">
     <name>大和橋</name>
-    <desc>9:19</desc>
-  </wpt>
-  <wpt lat="34.217789963" lon="132.222819999">
-    <name>大竹駅</name>
-    <desc>9:40</desc>
+    <desc>［降車時刻］9:19</desc>
   </wpt>
   <wpt lat="34.206290018" lon="132.218578756">
     <name>大和橋</name>
-    <desc>9:19</desc>
+    <desc>［出発時刻］9:19</desc>
+  </wpt>
+  <wpt lat="34.217789963" lon="132.222819999">
+    <name>［徒歩］大竹駅</name>
+    <desc>［到着時刻］9:40</desc>
   </wpt>
   <wpt lat="34.217590071" lon="132.222850174">
     <name>大竹駅</name>
-    <desc>10:00</desc>
+    <desc>［乗車時刻］10:00</desc>
   </wpt>
   <wpt lat="34.25456056" lon="132.227840424">
     <name>玖波駅</name>
-    <desc>10:25</desc>
+    <desc>［降車時刻］10:25</desc>
   </wpt>
   <wpt lat="34.254550029" lon="132.22783003">
     <name>玖波駅</name>
-    <desc>11:47</desc>
+    <desc>［乗車時刻］11:47</desc>
   </wpt>
   <wpt lat="34.322809867" lon="132.310870215">
     <name>ふじタウン南</name>
-    <desc>12:40</desc>
+    <desc>［降車時刻］12:40</desc>
   </wpt>
   <wpt lat="34.322790069" lon="132.310909946">
     <name>ふじタウン南</name>
-    <desc>12:43</desc>
+    <desc>［乗車時刻］12:43</desc>
   </wpt>
   <wpt lat="34.345020062" lon="132.296860032">
     <name>四季が丘</name>
-    <desc>13:01</desc>
+    <desc>［降車時刻］13:01</desc>
   </wpt>
   <wpt lat="34.344941074" lon="132.296849571">
     <name>四季が丘</name>
-    <desc>13:19</desc>
+    <desc>［乗車時刻］13:19</desc>
   </wpt>
   <wpt lat="34.396145204" lon="132.456965446">
     <name>広島ＢＣ</name>
-    <desc>14:24</desc>
+    <desc>［降車時刻］14:24</desc>
   </wpt>
   <wpt lat="34.396481614" lon="132.455806732">
     <name>広島ＢＣ</name>
-    <desc>15:10</desc>
+    <desc>［乗車時刻］15:10</desc>
   </wpt>
   <wpt lat="34.421531513" lon="132.596483231">
     <name>瀬野駅</name>
-    <desc>16:06</desc>
+    <desc>［降車時刻］16:06</desc>
   </wpt>
   <wpt lat="34.421529992" lon="132.59654006">
     <name>瀬野駅</name>
-    <desc>17:41</desc>
+    <desc>［乗車時刻］17:41</desc>
   </wpt>
   <wpt lat="34.4306" lon="132.74361">
     <name>西条駅</name>
-    <desc>18:41</desc>
+    <desc>［降車時刻］18:41</desc>
   </wpt>
   <wpt lat="34.430630021" lon="132.743439954">
     <name>西条駅</name>
-    <desc>19:55</desc>
+    <desc>［乗車時刻］19:55</desc>
   </wpt>
   <wpt lat="34.34701" lon="132.90486">
     <name>新開（竹原市）</name>
-    <desc>20:44</desc>
+    <desc>［降車時刻］20:44</desc>
   </wpt>
   <wpt lat="34.347019942" lon="132.904849928">
     <name>新開（竹原市）</name>
-    <desc>7:07</desc>
+    <desc>［乗車時刻］7:07</desc>
   </wpt>
   <wpt lat="34.400254336" lon="133.082681363">
     <name>三原駅</name>
-    <desc>8:23</desc>
+    <desc>［降車時刻］8:23</desc>
   </wpt>
   <wpt lat="34.397899999" lon="133.156390004">
     <name>上福地</name>
-    <desc>9:31</desc>
+    <desc>［降車時刻］9:31</desc>
+  </wpt>
+    <wpt lat="34.397899999" lon="133.156390004">
+    <name>［徒歩］上福地</name>
+    <desc>［出発時刻］9:31</desc>
   </wpt>
   <wpt lat="34.395346025" lon="133.160633672">
-    <name>鳴滝登山口</name>
-    <desc>9:37</desc>
+    <name>［徒歩］鳴滝登山口</name>
+    <desc>［到着時刻］9:37</desc>
   </wpt>
   <wpt lat="34.395610016" lon="133.16034995">
     <name>鳴滝登山口</name>
-    <desc>9:45</desc>
+    <desc>［乗車時刻］9:45</desc>
   </wpt>
   <wpt lat="34.40424025" lon="133.193099722">
     <name>尾道駅前</name>
-    <desc>10:00</desc>
+    <desc>［降車時刻］10:00</desc>
   </wpt>
   <wpt lat="34.404079945" lon="133.193700034">
     <name>尾道駅前</name>
-    <desc>10:25</desc>
+    <desc>［乗車時刻］10:25</desc>
   </wpt>
   <wpt lat="34.488222196" lon="133.362744191">
     <name>福山駅前</name>
-    <desc>11:12</desc>
+    <desc>［降車時刻］11:12</desc>
   </wpt>
   <wpt lat="34.488089966" lon="133.363110032">
     <name>福山駅前</name>
-    <desc>12:40</desc>
+    <desc>［乗車時刻］12:40</desc>
   </wpt>
   <wpt lat="34.601304789" lon="133.465267901">
     <name>井原ＢＣ</name>
-    <desc>13:25</desc>
+    <desc>［降車時刻］13:25</desc>
   </wpt>
   <wpt lat="34.601443681" lon="133.465257771">
     <name>井原ＢＣ</name>
-    <desc>13:45</desc>
+    <desc>［乗車時刻］13:45</desc>
   </wpt>
   <wpt lat="34.50513" lon="133.50519">
     <name>笠岡駅前</name>
-    <desc>14:17</desc>
+    <desc>［降車時刻］14:17</desc>
   </wpt>
   <wpt lat="34.505150027" lon="133.505190164">
     <name>笠岡駅前</name>
-    <desc>15:15</desc>
+    <desc>［乗車時刻］15:15</desc>
   </wpt>
   <wpt lat="34.50569" lon="133.53661">
     <name>今井入口</name>
-    <desc>15:27</desc>
+    <desc>［降車時刻］15:27</desc>
+  </wpt>
+  <wpt lat="34.50569" lon="133.53661">
+    <name>［徒歩］今井入口</name>
+    <desc>［乗車時刻］15:27</desc>
   </wpt>
   <wpt lat="34.50767" lon="133.55078">
-    <name>里庄駅</name>
-    <desc>15:51</desc>
-  </wpt>
-  <wpt lat="34.48272" lon="133.58881">
-    <name>寄島総合支所前</name>
-    <desc>16:54</desc>
+    <name>［徒歩］里庄駅</name>
+    <desc>［降車時刻］15:51</desc>
   </wpt>
   <wpt lat="34.507661767" lon="133.550748825">
     <name>里庄駅</name>
-    <desc>16:43</desc>
+    <desc>［乗車時刻］16:43</desc>
+  </wpt>
+  <wpt lat="34.48272" lon="133.58881">
+    <name>寄島総合支所前</name>
+    <desc>［降車時刻］16:54</desc>
   </wpt>
   <wpt lat="34.482714875" lon="133.588762584">
     <name>寄島総合支所前</name>
-    <desc>16:58</desc>
+    <desc>［乗車時刻］16:58</desc>
   </wpt>
   <wpt lat="34.565071404" lon="133.679562335">
     <name>新倉敷駅</name>
-    <desc>17:43</desc>
+    <desc>［降車時刻］17:43</desc>
   </wpt>
   <wpt lat="34.565169991" lon="133.67956996">
     <name>新倉敷駅前</name>
-    <desc>18:05</desc>
+    <desc>［乗車時刻］18:05</desc>
   </wpt>
   <wpt lat="34.555263067" lon="133.712621996">
     <name>倉敷芸術科学大学</name>
-    <desc>18:17</desc>
+    <desc>［降車時刻］18:17</desc>
+  </wpt>
+  <wpt lat="34.555263067" lon="133.712621996">
+    <name>倉敷芸術科学大学</name>
+    <desc>［乗車時刻］18:17</desc>
   </wpt>
   <wpt lat="34.601082774" lon="133.766128495">
     <name>倉敷駅前</name>
-    <desc>19:09</desc>
+    <desc>［降車時刻］19:09</desc>
   </wpt>
 </gpx>
