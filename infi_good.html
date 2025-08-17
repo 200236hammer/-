@@ -429,65 +429,70 @@
       }
 
       // ---- 設定ブロック生成 ----
-      function addConfig(containerSelector) {
-        const container = document.querySelector(containerSelector);
-        const t = document.getElementById('config-template').content.cloneNode(true);
-        container.appendChild(t);
-        const config = container.lastElementChild;
+function addConfig(containerSelector, isRecord = true) {
+  const container = document.querySelector(containerSelector);
+  const t = document.getElementById('config-template').content.cloneNode(true);
+  container.appendChild(t);
+  const config = container.lastElementChild;
 
-        // 削除
-        config.querySelector('.remove-config').onclick = () => config.remove();
+  // ラベルにレコードID／ビューIDを設定
+  const idLabel = config.querySelector('.id-label');
+  idLabel.textContent = isRecord ? 'レコードID:' : 'ビューID:';
 
-        // 区分セット追加
-        const typesList = config.querySelector('.types-list');
-        config.querySelector('.add-type-set').onclick = () => addTypeSetRow(typesList);
+  // 削除
+  config.querySelector('.remove-config').onclick = () => config.remove();
 
-        // GPX
-        const gpxList = config.querySelector('.gpx-list');
-        config.querySelector('.add-gpx').onclick = () => addRowFromTemplate(gpxList, 'gpx-item-template');
+  // 区分セット追加
+  const typesList = config.querySelector('.types-list');
+  config.querySelector('.add-type-set').onclick = () => addTypeSetRow(typesList);
 
-        // 除去文字列
-        const removeStrsList = config.querySelector('.removeStrs-list');
-        config.querySelector('.add-removeStr').onclick = () => addRowFromTemplate(removeStrsList, 'row-text-template');
+  // GPX
+  const gpxList = config.querySelector('.gpx-list');
+  config.querySelector('.add-gpx').onclick = () => addRowFromTemplate(gpxList, 'gpx-item-template');
 
-        // InfoWindow 表示
-        const pointKintoneList = config.querySelector('.pointKintone-list');
-        config.querySelector('.add-pointKintone').onclick = () => {
-          const row = addRowFromTemplate(pointKintoneList, 'info-item-template', '.remove-info-item');
-          setupInfoItem(row);
-        };
+  // 除去文字列
+  const removeStrsList = config.querySelector('.removeStrs-list');
+  config.querySelector('.add-removeStr').onclick = () => addRowFromTemplate(removeStrsList, 'row-text-template');
 
-        // ルートクリック表示
-        const routeKintoneList = config.querySelector('.routeKintone-list');
-        config.querySelector('.add-routeKintone').onclick = () => {
-          const row = addRowFromTemplate(routeKintoneList, 'info-item-template', '.remove-info-item');
-          setupInfoItem(row);
-        };
+  // InfoWindow 表示
+  const pointKintoneList = config.querySelector('.pointKintone-list');
+  config.querySelector('.add-pointKintone').onclick = () => {
+    const row = addRowFromTemplate(pointKintoneList, 'info-item-template', '.remove-info-item');
+    setupInfoItem(row);
+  };
 
-        // 乗車条件
-        const boardingList = config.querySelector('.boarding-conds');
-        config.querySelector('.add-boarding-cond').onclick = () => addRowFromTemplate(boardingList, 'cond-item-template');
+  // ルートクリック表示
+  const routeKintoneList = config.querySelector('.routeKintone-list');
+  config.querySelector('.add-routeKintone').onclick = () => {
+    const row = addRowFromTemplate(routeKintoneList, 'info-item-template', '.remove-info-item');
+    setupInfoItem(row);
+  };
 
-        // 降車条件
-        const alightingList = config.querySelector('.alighting-conds');
-        config.querySelector('.add-alighting-cond').onclick = () => addRowFromTemplate(alightingList, 'cond-item-template');
+  // 乗車条件
+  const boardingList = config.querySelector('.boarding-conds');
+  config.querySelector('.add-boarding-cond').onclick = () => addRowFromTemplate(boardingList, 'cond-item-template');
 
-        // GPX <name> ↔ フィールド
-        const mappingList = config.querySelector('.mapping-list');
-        config.querySelector('.add-mapping').onclick = () => addRowFromTemplate(mappingList, 'mapping-item-template');
-        config.querySelector('.remove-mapping').onclick = () => {
-          if(mappingList.lastElementChild) mappingList.lastElementChild.remove();
-        };
+  // 降車条件
+  const alightingList = config.querySelector('.alighting-conds');
+  config.querySelector('.add-alighting-cond').onclick = () => addRowFromTemplate(alightingList, 'cond-item-template');
 
-        return config;
-      }
+  // GPX <name> ↔ フィールド
+  const mappingList = config.querySelector('.mapping-list');
+  config.querySelector('.add-mapping').onclick = () => addRowFromTemplate(mappingList, 'mapping-item-template');
+  config.querySelector('.remove-mapping').onclick = () => {
+    if(mappingList.lastElementChild) mappingList.lastElementChild.remove();
+  };
 
-      // 初期タブ生成
-      addConfig('.record-configs');
-      addConfig('.list-configs');
+  return config;
+}
 
-      document.getElementById('add-record-config').onclick = () => addConfig('.record-configs');
-      document.getElementById('add-list-config').onclick = () => addConfig('.list-configs');
+// 初期タブ生成
+addConfig('.record-configs', true);
+addConfig('.list-configs', false);
+
+document.getElementById('add-record-config').onclick = () => addConfig('.record-configs', true);
+document.getElementById('add-list-config').onclick = () => addConfig('.list-configs', false);
+
 
       // 保存
       document.getElementById('save').onclick = () => {
