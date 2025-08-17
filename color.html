@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>設定画面（フル統合版）</title>
+<style>
+body { font-family: system-ui, Arial, sans-serif; margin:20px; }
+.tab-button { margin-right:6px; padding:6px 10px; }
+.tab-button.active { font-weight:bold; border-bottom:2px solid #333; }
+.tab-content { display:none; margin-top:12px; }
+.tab-content.active { display:block; }
+.config-item { margin:16px 0; padding:12px; border:1px solid #ccc; border-radius:6px; }
+.config-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+.section-title { font-weight:600; margin:16px 0 6px; }
+.inline-input { display:flex; align-items:center; gap:8px; margin:6px 0; }
+.inline-input input[type="text"] { width:320px; }
+.inline-input .short { width:160px; }
+.inline-input .mini { width:110px; }
+.list { margin-top:6px; }
+.row { display:flex; align-items:center; gap:8px; margin:6px 0; flex-wrap:wrap; }
+label { margin-right:6px; }
+.id-label { margin-right:6px; }
+.btn { padding:4px 8px; }
+.btn-small { padding:2px 6px; }
+.group-box { border:1px dashed #bbb; padding:10px; border-radius:6px; margin:8px 0; }
+.muted { color:#666; font-size:12px; }
+.topline { margin-top:14px; border-top:1px solid #eee; padding-top:10px; }
+.savebar { margin-top:16px; display:flex; gap:8px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+
+<h1>バスルート プラグイン設定（フル版）</h1>
+
+<div class="config-item">
+  <div class="section-title">Google Maps APIキー（共通）</div>
+  <div class="inline-input">
+    <input type="text" id="apiKeyCommon" placeholder="APIキーを入力" style="width:420px;">
+  </div>
+  <div class="muted">※ レコード画面・一覧画面の両方で共通利用します</div>
+</div>
+
+<div id="tabs">
+  <button type="button" class="tab-button active" data-tab="record">レコード画面</button>
+  <button type="button" class="tab-button" data-tab="list">一覧画面</button>
+</div>
+
+<div id="tab-contents">
+  <div class="tab-content active" id="tab-record">
+    <div class="config-header">
+      <div class="section-title" style="margin:0;">レコード画面用設定</div>
+      <div><button type="button" id="add-record-config" class="btn">＋ 設定追加</button></div>
+    </div>
+    <div class="record-configs"></div>
+  </div>
+
+  <div class="tab-content" id="tab-list">
+    <div class="config-header">
+      <div class="section-title" style="margin:0;">一覧画面用設定</div>
+      <div><button type="button" id="add-list-config" class="btn">＋ 設定追加</button></div>
+    </div>
+    <div class="list-configs"></div>
+  </div>
+</div>
+
+<div class="savebar">
+  <button type="button" id="save" class="btn">保存</button>
+  <span class="muted">※ いったんコンソールに設定内容を出力します</span>
+</div>
+
+<!-- ================= Templates ================= -->
+
+<template id="config-template">
+  <div class="config-item">
+    <div class="config-header">
+      <div class="muted">このブロックは 1 つの「設定」です</div>
+      <button type="button" class="remove-config btn-small">－ 設定削除</button>
+    </div>
+
+    <div class="inline-input">
+      <label class="id-label"></label>
+      <input type="text" class="recordOrViewId" placeholder="">
+    </div>
+
+    <!-- GPX URL -->
+    <div class="section-title topline">GPX URL</div>
+    <div class="gpx-list list"></div>
+    <button type="button" class="add-gpx btn-small">＋ 追加</button>
+
+    <!-- 区分セット -->
+    <div class="section-title topline">区分セット</div>
+    <div class="types-list list"></div>
+    <button type="button" class="add-type-set btn-small">＋ 追加</button>
+
+    <!-- 除去文字列 -->
+    <div class="section-title topline">除去文字列</div>
+    <div class="removeStrs-list list"></div>
+    <button type="button" class="add-removeStr btn-small">＋ 追加</button>
+
+    <!-- 地点クリック表示 -->
+    <div class="section-title topline">地点クリック表示</div>
+    <div class="pointKintone-list list"></div>
+    <button type="button" class="add-pointKintone btn-small">＋ 追加</button>
+
+    <!-- ルートクリック表示 -->
+    <div class="section-title topline">ルートクリック表示</div>
+    <div class="routeKintone-list list"></div>
+    <button type="button" class="add-routeKintone btn-small">＋ 追加</button>
+
+    <!-- レコードリンク条件 -->
+    <div class="section-title topline">レコードリンク条件</div>
+    <div class="group-box">
+      <div class="section-title" style="margin-top:0;">乗車地点条件</div>
+      <div class="boarding-conds list"></div>
+      <button type="button" class="add-boarding-cond btn-small">＋ 追加</button>
+
+      <div class="section-title" style="margin-top:12px;">降車地点条件</div>
+      <div class="alighting-conds list"></div>
+      <button type="button" class="add-alighting-cond btn-small">＋ 追加</button>
+      <div class="muted">例）InfoWindowに「乗車」が含まれていたら、kintoneの <code>boarding_bus_stop</code> で一致検索</div>
+    </div>
+
+    <!-- GPX <name> と kintoneフィールド対応 -->
+    <div class="section-title topline">GPX &lt;name&gt; と kintoneフィールド対応（ルートクリック用）</div>
+    <div class="mapping-list list"></div>
+    <div class="inline-input">
+      <button type="button" class="add-mapping btn-small">＋ 行追加</button>
+      <button type="button" class="remove-mapping btn-small">－ 末尾削除</button>
+    </div>
+
+    <div class="inline-input topline">
+      <label>距離100m未満黒線:</label>
+      <select class="blackIfShort mini">
+        <option value="true">する</option>
+        <option value="false">しない</option>
+      </select>
+    </div>
+  </div>
+</template>
+
+<!-- 区分セット -->
+<template id="type-set-template">
+  <div class="row">
+    区分名: <input type="text" class="type-name mini" placeholder="区分名">
+    <div class="colors-wrapper">
+      <div class="color-list"></div>
+      <button type="button" class="add-color btn-small">＋ 色追加</button>
+      <button type="button" class="remove-color btn-small">－ 色削除</button>
+      <button type="button" class="rainbow-color btn-small">🌈 虹色</button>
+    </div>
+    <select class="line-type mini">
+      <option value="solid">実線</option>
+      <option value="dashed">破線</option>
+      <option value="wave">波線</option>
+    </select>
+    <select class="legend mini">
+      <option value="true">凡例表示する</option>
+      <option value="false">凡例表示しない</option>
+    </select>
+    <input type="text" class="icon-url" placeholder="アイコンURL" style="width:220px;">
+    <button type="button" class="remove-type-set btn-small">－</button>
+  </div>
+</template>
+
+<!-- 色テンプレート -->
+<template id="color-item-template">
+  <div class="inline-input">
+    色: <input type="color" class="color-value" value="#0066ff">
+  </div>
+</template>
+
+<!-- 単純テキスト行テンプレート -->
+<template id="row-text-template">
+  <div class="inline-input">
+    <input type="text" class="text-input" placeholder="">
+    <button type="button" class="remove-row btn-small">－</button>
+  </div>
+</template>
+
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+  let currentTab='record';
+  document.querySelectorAll('.tab-button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+      currentTab=btn.dataset.tab;
+    });
+  });
+
+  function addRowFromTemplate(wrapper,templateId,setupFunc){
+    const t=document.getElementById(templateId).content.cloneNode(true);
+    wrapper.appendChild(t);
+    const row=wrapper.lastElementChild;
+    if(setupFunc) setupFunc(row);
+    return row;
+  }
+
+  function addTypeSetRow(wrapper){
+    const row=addRowFromTemplate(wrapper,'type-set-template');
+    const colorList=row.querySelector('.color-list');
+    const addColorBtn=row.querySelector('.add-color');
+    const removeColorBtn=row.querySelector('.remove-color');
+    const rainbowBtn=row.querySelector('.rainbow-color');
+
+    addColorBtn.onclick=()=> addRowFromTemplate(colorList,'color-item-template');
+    removeColorBtn.onclick=()=>{ if(colorList.children.length>0) colorList.lastElementChild.remove(); };
+    rainbowBtn.onclick=()=>{
+      colorList.innerHTML='';
+      const rainbowColors=['#ff0000','#ff7f00','#ffff00','#00ff00','#0000ff','#4b0082','#8b00ff'];
+      rainbowColors.forEach(c=>{
+        const div=document.createElement('div');
+        div.className='inline-input';
+        div.innerHTML=`色: <input type="color" class="color-value" value="${c}" disabled>`;
+        colorList.appendChild(div);
+      });
+      addColorBtn.disabled=true;
+      removeColorBtn.disabled=true;
+    };
+
+    row.querySelector('.remove-type-set').onclick=()=>row.remove();
+    return row;
+  }
+
+  function addConfig(container){
+    const containerEl=document.querySelector(container);
+    const config=addRowFromTemplate(containerEl,'config-template');
+    const idLabel=config.querySelector('.id-label');
+    const idInput=config.querySelector('.recordOrViewId');
+    if(currentTab==='record'){
+      idLabel.textContent='レコードID:';
+      idInput.placeholder='レコードID';
+    }else{
+      idLabel.textContent='ビューID:';
+      idInput.placeholder='ビューID';
+    }
+    config.querySelector('.remove-config').onclick=()=>config.remove();
+
+    // GPX追加
+    const gpxList=config.querySelector('.gpx-list');
+    config.querySelector('.add-gpx').onclick=()=>addRowFromTemplate(gpxList,'row-text-template');
+
+    // 除去文字列
+    const removeStrList=config.querySelector('.removeStrs-list');
+    config.querySelector('.add-removeStr').onclick=()=>addRowFromTemplate(removeStrList,'row-text-template');
+
+    // 区分セット
+    const typeList=config.querySelector('.types-list');
+    config.querySelector('.add-type-set').onclick=()=>addTypeSetRow(typeList);
+    addTypeSetRow(typeList); // 初期1行
+
+    // 地点クリック
+    const pointList=config.querySelector('.pointKintone-list');
+    config.querySelector('.add-pointKintone').onclick=()=>addRowFromTemplate(pointList,'row-text-template');
+
+    // ルートクリック
+    const routeList=config.querySelector('.routeKintone-list');
+    config.querySelector('.add-routeKintone').onclick=()=>addRowFromTemplate(routeList,'row-text-template');
+
+    // 乗車・降車条件
+    const boardingList=config.querySelector('.boarding-conds');
+    config.querySelector('.add-boarding-cond').onclick=()=>addRowFromTemplate(boardingList,'row-text-template');
+    const alightingList=config.querySelector('.alighting-conds');
+    config.querySelector('.add-alighting-cond').onclick=()=>addRowFromTemplate(alightingList,'row-text-template');
+
+    // GPX <name> 対応
+    const mappingList=config.querySelector('.mapping-list');
+    config.querySelector('.add-mapping').onclick=()=>addRowFromTemplate(mappingList,'row-text-template');
+    config.querySelector('.remove-mapping').onclick=()=>{
+      if(mappingList.children.length>0) mappingList.lastElementChild.remove();
+    };
+  }
+
+  document.getElementById('add-record-config').onclick=()=>addConfig('.record-configs');
+  document.getElementById('add-list-config').onclick=()=>addConfig('.list-configs');
+
+  document.getElementById('save').onclick=()=>{
+    console.log('保存処理');
+    alert('コンソールに設定内容を出力します');
+  };
+});
+</script>
+
+</body>
+</html>

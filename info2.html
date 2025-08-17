@@ -1,0 +1,42 @@
+<div id="mapping-container">
+  <h3>GPX <name> と kintoneフィールドの対応</h3>
+  <div id="mapping-list"></div>
+  <button type="button" id="add-mapping">＋</button>
+  <button type="button" id="remove-mapping">－</button>
+</div>
+
+<script>
+  // 初期状態（2つ）
+  let mappings = [
+    { gpxName: '乗車バス停', fieldCode: 'boarding_bus_stop' },
+    { gpxName: '降車バス停', fieldCode: 'alighting_bus_stop' }
+  ];
+
+  function renderMappings() {
+    const container = document.getElementById('mapping-list');
+    container.innerHTML = '';
+    mappings.forEach((m, i) => {
+      const row = document.createElement('div');
+      row.innerHTML = `
+        <input type="text" placeholder="GPX <name>" value="${m.gpxName}" data-index="${i}" data-type="gpx">
+        →
+        <input type="text" placeholder="kintoneフィールドコード" value="${m.fieldCode}" data-index="${i}" data-type="field">
+      `;
+      container.appendChild(row);
+    });
+  }
+
+  document.getElementById('add-mapping').onclick = () => {
+    mappings.push({ gpxName: '', fieldCode: '' });
+    renderMappings();
+  };
+
+  document.getElementById('remove-mapping').onclick = () => {
+    if (mappings.length > 1) {
+      mappings.pop();
+      renderMappings();
+    }
+  };
+
+  renderMappings();
+</script>

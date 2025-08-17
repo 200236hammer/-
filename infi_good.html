@@ -280,8 +280,7 @@
   <!-- 区分セット -->
   <template id="type-set-template">
     <div class="row type-set-row">
-      区分名: <input type="text" class="type-name mini" placeholder="区分名">
-
+    区分名: <input type="text" class="type-name mini" placeholder="例：高速バス">
       <!-- 色リスト -->
       <div class="colors-wrapper">
         <div class="color-list"></div>
@@ -473,53 +472,31 @@
         const alightingList = config.querySelector('.alighting-conds');
         config.querySelector('.add-alighting-cond').onclick = () => addRowFromTemplate(alightingList, 'cond-item-template');
 
-        // GPX <name> ↔ kintoneフィールド
+        // GPX <name> ↔ フィールド
         const mappingList = config.querySelector('.mapping-list');
         config.querySelector('.add-mapping').onclick = () => addRowFromTemplate(mappingList, 'mapping-item-template');
         config.querySelector('.remove-mapping').onclick = () => {
-          if (mappingList.lastElementChild) mappingList.lastElementChild.remove();
+          if(mappingList.lastElementChild) mappingList.lastElementChild.remove();
         };
+
+        return config;
       }
 
-      // ---- 初期イベント ----
+      // 初期タブ生成
+      addConfig('.record-configs');
+      addConfig('.list-configs');
+
       document.getElementById('add-record-config').onclick = () => addConfig('.record-configs');
       document.getElementById('add-list-config').onclick = () => addConfig('.list-configs');
 
+      // 保存
       document.getElementById('save').onclick = () => {
-        const data = {
-          apiKey: document.getElementById('apiKeyCommon').value,
-          recordConfigs: [],
-          listConfigs: []
-        };
-
-        ['record','list'].forEach(tab=>{
-          const container = document.querySelector(`.${tab}-configs`);
-          container.querySelectorAll('.config-item').forEach(c=>{
-            const cfg = {};
-            cfg.id = c.querySelector('.recordOrViewId').value;
-            cfg.gpxUrls = Array.from(c.querySelectorAll('.gpxUrl')).map(x=>x.value);
-            cfg.types = Array.from(c.querySelectorAll('.type-set-row')).map(t=>{
-              return {
-                name: t.querySelector('.type-name').value,
-                lineType: t.querySelector('.line-type').value,
-                legend: t.querySelector('.legend').value,
-                iconUrl: t.querySelector('.icon-url').value,
-                colors: Array.from(t.querySelectorAll('.color-row')).map(r=>({
-                  name: r.querySelector('.color-name').value,
-                  value: r.querySelector('.color-value').value
-                }))
-              };
-            });
-            data[tab+'Configs'].push(cfg);
-          });
-        });
-
-        console.log(data);
-        alert('保存内容をコンソールに出力しました');
+        console.log('保存ボタン押下（サンプル）');
+        alert('保存内容はコンソールに出力されます');
       };
-
     });
   </script>
+
 </body>
 
 </html>

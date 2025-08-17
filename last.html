@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>バスルートプラグイン設定</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .field-group { margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; }
+    .field-group h3, .field-group h4 { margin-top: 0; }
+    .repeatable { margin: 5px 0; }
+    button { margin-left: 5px; }
+    #mapping-list div { margin: 5px 0; }
+    input[type="text"] { width: 180px; }
+  </style>
+</head>
+<body>
+  <h1>バスルートプラグイン設定</h1>
+
+  <!-- APIキー -->
+  <div class="field-group">
+    <h3>Google Maps APIキー</h3>
+    <input type="text" id="apiKey">
+  </div>
+
+  <!-- GPX URL -->
+  <div class="field-group">
+    <h3>GPX/KMLファイルURL</h3>
+    <input type="text" id="gpxUrl">
+  </div>
+
+  <!-- 区間色設定 -->
+  <div class="field-group">
+    <h3>区間色設定</h3>
+    <div id="sectionColors"></div>
+    <button type="button" onclick="addSectionColor()">＋追加</button>
+  </div>
+
+  <!-- リンク条件設定 -->
+  <div class="field-group">
+    <h3>レコードリンク条件</h3>
+    <p>InfoWindow内の文字に応じて、対応するフィールドを検索します。</p>
+
+    <h4>乗車地点条件</h4>
+    <div id="boardingConditions"></div>
+    <button type="button" onclick="addCondition('boarding')">＋追加</button>
+
+    <h4>降車地点条件</h4>
+    <div id="alightingConditions"></div>
+    <button type="button" onclick="addCondition('alighting')">＋追加</button>
+  </div>
+
+  <!-- GPX <name> と kintoneフィールドの対応 -->
+  <div class="field-group" id="mapping-container">
+    <h3>GPX <name> と kintoneフィールドの対応</h3>
+    <div id="mapping-list"></div>
+    <button type="button" id="add-mapping">＋</button>
+    <button type="button" id="remove-mapping">－</button>
+  </div>
+
+  <button type="button" onclick="saveSettings()">保存</button>
+
+  <script>
+    // ===== 区間色 =====
+    function addSectionColor(value = '') {
+      const container = document.getElementById('sectionColors');
+      const div = document.createElement('div');
+      div.className = 'repeatable';
+      div.innerHTML = `
+        <input type="color" value="${value}">
+        <button type="button" onclick="this.parentNode.remove()">－</button>
+      `;
+      container.appendChild(div);
+    }
+
+    // ===== リンク条件 =====
+    function addCondition(type, keyword = '', field = '') {
+      const container = (type === 'boarding') ? document.getElementById('boardingConditions') : document.getElementById('alightingConditions');
+      const div = document.createElement('div');
+      div.className = 'repeatable';
+      div.innerHTML = `
+        キーワード: <input type="text" value="${keyword}">
+        フィールドID: <input type="text" value="${field}">
+        <button type="button" onclick="this.parentNode.remove()">－</button>
+      `;
+      container.appendChild(div);
+    }
+
+    // ===== GPX <name> とフィールド対応 =====
+    let mappings = [
+      { gpxName: '乗車バス停', fieldCode: 'boarding_bus_stop' },
+      { gpxName: '降車バス停', fieldCode: 'alighting_bus_stop' }
+    ];
+
+    function renderMappings() {
+      const container = document.getElementById('mapping-list');
+      container.innerHTML = '';
+      mappings.forEach((m, i) => {
+        const row = document.createElement('div');
+        row.innerHTML = `
+          <input type="text" placeholder="GPX <name>" value="${m.gpxName}" data-index="${i}" data-type="gpx">
+          →
+          <input type="text" placeholder="kintoneフィールドコード" value="${m.fieldCode}" data-index="${i}" data-type="field">
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    document.getElementById('add-mapping').onclick = () => {
+      mappings.push({ gpxName: '', fieldCode: '' });
+      renderMappings();
+    };
+
+    document.getElementById('remove-mapping').onclick = () => {
+      if (mappings.length > 1) {
+        mappings.pop();
+        renderMappings();
+      }
+    };
+
+    // ===== 保存処理 =====
+    function saveSettings() {
+      const settings = {
+        apiKey: document.getElementById('apiKey').value,
+        gpxUrl: document.getElementById('gpxUrl').value,
+        sectionColors: Array.from(document.querySelectorAll('#sectionColors input[type=color]')).map(i=>i.value),
+        boardingConditions: Array.from(document.querySelectorAll('#boardingConditions .repeatable')).map(div => ({
+          keyword: div.querySelectorAll('input')[0].value,
+          field: div.querySelectorAll('input')[1].value
+        })),
+        alightingConditions: Array.from(document.querySelectorAll('#alightingConditions .repeatable')).map(div => ({
+          keyword: div.querySelectorAll('input')[0].value,
+          field: div.querySelectorAll('input')[1].value
+        })),
+        gpxFieldMappings: mappings
+      };
+      console.log("保存データ:", settings);
+      alert("保存しました（コンソールを確認）");
+    }
+
+    // ===== 初期表示 =====
+    window.onload = function() {
+      addSectionColor('#ff0000');
+      addSectionColor('#0000ff');
+      addCondition('boarding', '乗車', 'boarding_bus_stop');
+      addCondition('alighting', '降車', 'alighting_bus_stop');
+      renderMappings();
+    };
+  </script>
+</body>
+</html>
