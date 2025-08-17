@@ -1,135 +1,230 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-<meta charset="UTF-8">
-<title>設定画面（完全版）</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>設定画面（フル統合版）</title>
+  <link rel="stylesheet" href="config.css">
 </head>
+
 <body>
 
-<div id="tabs">
-  <button type="button" class="tab-button active" data-tab="record">レコード画面</button>
-  <button type="button" class="tab-button" data-tab="list">一覧画面</button>
-</div>
+  <h1>バスルート プラグイン設定</h1>
 
-<div id="tab-contents">
-
-  <!-- レコード画面設定 -->
-  <div class="tab-content active" id="tab-record">
-    <div>
-      <label>Google Maps APIキー（共通）</label>
-      <input type="text" id="apiKey" placeholder="APIキー入力"/>
-    </div>
-    <div class="record-configs">
-      <button type="button" id="add-record-config">＋ 設定追加</button>
-    </div>
-  </div>
-
-  <!-- 一覧画面設定 -->
-  <div class="tab-content" id="tab-list">
-    <div>
-      <label>Google Maps APIキー（共通）</label>
-      <input type="text" id="apiKeyList" placeholder="APIキー入力"/>
-    </div>
-    <div class="list-configs">
-      <button type="button" id="add-list-config">＋ 設定追加</button>
-    </div>
-  </div>
-
-</div>
-
-<!-- テンプレート群 -->
-<template id="config-template">
+  <!-- 共通 API キー -->
   <div class="config-item">
-    <button type="button" class="remove-config" style="float:right;">－ 設定削除</button>
+    <div class="section-title">Google Maps APIキー（共通）</div>
+    <div class="inline-input">
+      <input type="text" id="apiKeyCommon" placeholder="APIキーを入力" style="width:420px;">
+    </div>
+    <div class="muted">※ レコード画面・一覧画面の両方で共通利用します</div>
+  </div>
 
-    <div class="id-wrapper">
-      <label class="id-label"></label>
-      <input type="text" class="recordOrViewId">
+  <!-- タブ -->
+  <div id="tabs">
+    <button type="button" class="tab-button active" data-tab="record">レコード画面</button>
+    <button type="button" class="tab-button" data-tab="list">一覧画面</button>
+  </div>
+
+  <div id="tab-contents">
+    <!-- レコード画面 -->
+    <div class="tab-content active" id="tab-record">
+      <div class="config-header">
+        <div class="section-title" style="margin:0;">レコード画面 用 設定</div>
+        <div>
+          <button type="button" id="add-record-config" class="btn">＋ 設定追加</button>
+        </div>
+      </div>
+      <div class="record-configs"></div>
     </div>
 
-    <div class="gpx-wrapper">
-      <label>GPX URL:</label>
-      <div class="gpx-list"></div>
-      <button type="button" class="add-gpx">＋ GPX追加</button>
+    <!-- 一覧画面 -->
+    <div class="tab-content" id="tab-list">
+      <div class="config-header">
+        <div class="section-title" style="margin:0;">一覧画面 用 設定</div>
+        <div>
+          <button type="button" id="add-list-config" class="btn">＋ 設定追加</button>
+        </div>
+      </div>
+      <div class="list-configs"></div>
     </div>
+  </div>
 
-    <div class="types-wrapper">
-      <label>区分セット:</label>
-      <div class="types-list"></div>
-      <button type="button" class="add-type-set">＋</button>
+  <!-- 保存 -->
+  <div class="savebar">
+    <button type="button" id="save" class="btn">保存</button>
+    <span class="muted">※ いったんコンソールに保存内容を出力します</span>
+  </div>
+
+  <!-- ================= Templates ================= -->
+  <div style="display:none;">
+    <div id="templates">
+      <!-- ここに全テンプレートをまとめて置きます -->
+      <!-- config-template, row-text-template, gpx-item-template, type-set-template, color-item-template, info-item-template, cond-item-template, mapping-item-template -->
+      <!-- 省略：元HTMLのtemplateタグ内すべてをコピーしてここに貼り付け -->
+         <!-- ================= Templates ================= -->
+
+  <!-- 設定ブロック -->
+  <template id="config-template">
+    <div class="config-item">
+      <div class="config-header">
+        <div class="muted">このブロックは 1 つの「設定」です</div>
+        <button type="button" class="remove-config btn-small">－ 設定削除</button>
+      </div>
+
+      <!-- ID -->
+      <div class="inline-input">
+        <label class="id-label"></label>
+        <input type="text" class="recordOrViewId short" placeholder="">
+      </div>
+
+      <!-- GPX URL -->
+      <div class="section-title topline">GPX URL</div>
+      <div class="gpx-list list"></div>
+      <button type="button" class="add-gpx btn-small">＋ 追加</button>
+
+      <!-- 区分セット -->
+      <div class="section-title topline">区分セット</div>
+      <div class="types-list list"></div>
+      <button type="button" class="add-type-set btn-small">＋ 追加</button>
+
+      <!-- 除去文字列 -->
+      <div class="section-title topline">除去文字列</div>
+      <div class="removeStrs-list list"></div>
+      <button type="button" class="add-removeStr btn-small">＋ 追加</button>
+
+      <!-- 地点クリック表示 -->
+      <div class="section-title topline">地点クリック表示</div>
+      <div class="pointKintone-list list"></div>
+      <button type="button" class="add-pointKintone btn-small">＋ 追加</button>
+
+      <!-- ルートクリック表示 -->
+      <div class="section-title topline">ルートクリック表示</div>
+      <div class="routeKintone-list list"></div>
+      <button type="button" class="add-routeKintone btn-small">＋ 追加</button>
+
+      <!-- レコードリンク条件（乗車/降車） -->
+      <div class="section-title topline">レコードリンク条件</div>
+      <div class="group-box">
+        <div class="section-title" style="margin-top:0;">乗車地点条件</div>
+        <div class="boarding-conds list"></div>
+        <button type="button" class="add-boarding-cond btn-small">＋ 追加</button>
+
+        <div class="section-title" style="margin-top:12px;">降車地点条件</div>
+        <div class="alighting-conds list"></div>
+        <button type="button" class="add-alighting-cond btn-small">＋ 追加</button>
+        <div class="muted">例）InfoWindowに「乗車」が含まれていたら、kintoneの <code>boarding_bus_stop</code> で一致検索</div>
+      </div>
+
+      <!-- GPX <name> ↔ kintone フィールド -->
+      <div class="section-title topline">GPX &lt;name&gt; と kintoneフィールドの対応（ルートクリック用）</div>
+      <div class="mapping-list list"></div>
+      <div class="inline-input">
+        <button type="button" class="add-mapping btn-small">＋ 行追加</button>
+        <button type="button" class="remove-mapping btn-small">－ 末尾削除</button>
+      </div>
+
+      <!-- 100m黒線 -->
+      <div class="inline-input topline">
+        <label>距離100m未満黒線:</label>
+        <select class="blackIfShort mini">
+          <option value="true">する</option>
+          <option value="false">しない</option>
+        </select>
+      </div>
     </div>
+  </template>
 
-    <div class="multi-wrapper">
-      <label>除去文字列:</label>
-      <div class="removeStrs-list"></div>
-      <button type="button" class="add-removeStr">＋</button>
+  <!-- 単行テンプレ(汎用) -->
+  <template id="row-text-template">
+    <div class="inline-input">
+      <input type="text" class="text-input" placeholder="">
+      <button type="button" class="remove-btn btn-small">－</button>
     </div>
+  </template>
 
-    <div class="multi-wrapper">
-      <label>地点クリック表示:</label>
-      <div class="pointKintone-list"></div>
-      <button type="button" class="add-pointKintone">＋</button>
+  <!-- GPX URL 専用 -->
+  <template id="gpx-item-template">
+    <div class="inline-input">
+      <input type="text" class="gpxUrl" placeholder="https://.../file.gpx">
+      <button type="button" class="remove-btn btn-small">－</button>
     </div>
+  </template>
 
-    <div class="multi-wrapper">
-      <label>ルートクリック表示:</label>
-      <div class="routeKintone-list"></div>
-      <button type="button" class="add-routeKintone">＋</button>
-    </div>
+  <!-- 区分セット -->
+  <template id="type-set-template">
+    <div class="row type-set-row">
+      区分名: <input type="text" class="type-name mini" placeholder="例：高速バス">
+      <!-- 色リスト -->
+      <div class="colors-wrapper">
+        <div class="color-list"></div>
+        <button type="button" class="add-color btn-small">＋ 色追加</button>
+        <button type="button" class="remove-color btn-small">－ 色削除</button>
+        <button type="button" class="rainbow-color btn-small">🌈 虹色</button>
+      </div>
 
-    <div>
-      <label>距離100m未満黒線:</label>
-      <select class="blackIfShort">
-        <option value="true">する</option>
-        <option value="false">しない</option>
+      <select class="line-type mini">
+        <option value="solid">実線</option>
+        <option value="dashed">破線</option>
+        <option value="wave">波線</option>
       </select>
+
+      <select class="legend mini">
+        <option value="true">凡例表示する</option>
+        <option value="false">凡例表示しない</option>
+      </select>
+
+      <input type="text" class="icon-url" placeholder="アイコンURL" style="width:220px;">
+      <button type="button" class="remove-type-set btn-small">－</button>
+    </div>
+  </template>
+
+  <!-- 色行テンプレート -->
+  <template id="color-item-template">
+    <div class="row color-row">
+      色: <input type="color" class="color-value mini" value="#ff0000">
+    </div>
+  </template>
+
+  <!-- InfoWindow 表示行 -->
+  <template id="info-item-template">
+    <div class="info-item">
+      <select class="data-source mini">
+        <option value="kintone">kintone</option>
+        <option value="gpx">GPX</option>
+      </select>
+      <input type="text" class="field-name mini" placeholder="項目名">
+      <div class="display-names-wrapper">
+        <input type="text" class="display-name mini" placeholder="表示名">
+        <button type="button" class="add-display-name btn-small">＋</button>
+      </div>
+      <button type="button" class="move-up btn-small">↑</button>
+      <button type="button" class="move-down btn-small">↓</button>
+      <button type="button" class="remove-info-item btn-small">－</button>
+    </div>
+  </template>
+
+  <!-- 乗車/降車 条件行 -->
+  <template id="cond-item-template">
+    <div class="row">
+      キーワード: <input type="text" class="cond-key mini" placeholder="例: 乗車">
+      フィールドID: <input type="text" class="cond-field mini" placeholder="例: boarding_bus_stop">
+      <button type="button" class="remove-btn btn-small">－</button>
+    </div>
+  </template>
+
+  <!-- GPX <name> ↔ フィールド対応 行 -->
+  <template id="mapping-item-template">
+    <div class="row">
+      GPX &lt;name&gt;: <input type="text" class="map-gpx mini" placeholder="例: 乗車バス停">
+      → kintoneフィールド: <input type="text" class="map-field mini" placeholder="例: boarding_bus_stop">
+      <button type="button" class="remove-btn btn-small">－</button>
+    </div>
+  </template>
     </div>
   </div>
-</template>
 
-<template id="gpx-item-template">
-  <div class="inline-input">
-    <input type="text" class="gpxUrl" placeholder="GPX URL">
-    <button type="button" class="remove-btn">－</button>
-  </div>
-</template>
+  <script src="config.js"></script>
 
-<template id="type-set-template">
-  <div class="type-set-item">
-    <input type="text" class="type-name" placeholder="区分名">
-    <input type="text" class="type-color" placeholder="#FF0000">
-    <select class="line-type">
-      <option value="solid">実線</option>
-      <option value="dashed">破線</option>
-      <option value="wave">波線</option>
-    </select>
-    <select class="legend">
-      <option value="true">凡例表示する</option>
-      <option value="false">凡例表示しない</option>
-    </select>
-    <input type="text" class="icon-url" placeholder="アイコンURL">
-    <button type="button" class="remove-type-set">－</button>
-  </div>
-</template>
-
-<template id="info-item-template">
-  <div class="info-item">
-    <select class="data-source">
-      <option value="kintone">kintone</option>
-      <option value="gpx">GPX</option>
-    </select>
-    <input type="text" class="field-name" placeholder="項目名">
-    <div class="display-names-wrapper">
-      <input type="text" class="display-name" placeholder="表示名">
-      <button type="button" class="add-display-name">＋</button>
-    </div>
-    <button type="button" class="move-up">↑</button>
-    <button type="button" class="move-down">↓</button>
-    <button type="button" class="remove-info-item">－</button>
-  </div>
-</template>
-
-<script src="script.js"></script>
 </body>
 </html>

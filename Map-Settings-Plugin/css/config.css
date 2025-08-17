@@ -1,11 +1,129 @@
-.tab-button { margin-right:4px; }
-.tab-button.active { font-weight:bold; }
-.tab-content { display:none; }
-.tab-content.active { display:block; }
-.config-item { margin-bottom:10px; padding:5px; border:1px solid #ccc; }
-.inline-input { display:flex; align-items:center; margin:4px 0; gap:4px; }
-.inline-input input { margin-right:4px; }
-.inline-input button { margin-left:4px; }
-.info-item { display:flex; align-items:center; gap:4px; margin:4px 0; border:1px solid #ccc; padding:4px; flex-wrap:wrap; }
-.display-names-wrapper { display:flex; gap:4px; flex-wrap:wrap; }
-.id-label { margin-right:4px; }
+body {
+  font-family: system-ui, Arial, sans-serif;
+  margin: 20px;
+}
+
+.tab-button {
+  margin-right: 6px;
+  padding: 6px 10px;
+}
+
+.tab-button.active {
+  font-weight: bold;
+  border-bottom: 2px solid #333;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 12px;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.config-item {
+  margin: 16px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.config-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-weight: 600;
+  margin: 16px 0 6px;
+}
+
+.inline-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.inline-input input[type="text"] {
+  width: 320px;
+}
+
+.inline-input .short {
+  width: 160px;
+}
+
+.inline-input .mini {
+  width: 110px;
+}
+
+.list {
+  margin-top: 6px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+  border: 1px solid #ddd;
+  padding: 6px;
+  border-radius: 4px;
+  flex-wrap: wrap;
+}
+
+.info-item .display-names-wrapper {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+label {
+  margin-right: 6px;
+}
+
+.id-label {
+  margin-right: 6px;
+}
+
+.btn {
+  padding: 4px 8px;
+}
+
+.btn-small {
+  padding: 2px 6px;
+}
+
+.group-box {
+  border: 1px dashed #bbb;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+
+.muted {
+  color: #666;
+  font-size: 12px;
+}
+
+.topline {
+  margin-top: 14px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.savebar {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+}
