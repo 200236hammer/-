@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>プラグイン設定</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 10px; }
+  label { display:block; margin:8px 0 2px; }
+  input[type=text], textarea { width: 100%; padding:4px; }
+</style>
+</head>
+<body>
+  <h3>Google Maps APIキー</h3>
+  <input type="text" id="apiKey">
+
+  <h3>GPX URL（複数ある場合はJSON配列形式）</h3>
+  <textarea id="gpxList" placeholder='["url1","url2"]'></textarea>
+
+  <h3>レコード詳細表示ID</h3>
+  <input type="text" id="recordId">
+
+  <h3>一覧表示ビューID</h3>
+  <input type="text" id="viewId">
+
+  <h3>キーワード</h3>
+  <input type="text" id="walkKeyword" placeholder="徒歩">
+  <input type="text" id="shipKeyword" placeholder="航路">
+
+  <h3>アイコンURL</h3>
+  <input type="text" id="iconBus" placeholder="バスアイコンURL">
+  <input type="text" id="iconWalk" placeholder="徒歩アイコンURL">
+  <input type="text" id="iconShip" placeholder="航路アイコンURL">
+
+  <div style="margin-top:20px;">
+    <button id="saveBtn">保存</button>
+  </div>
+
+<script>
+(function(){
+  // 初期値読み込み
+  const config = kintone.plugin.app.getConfig('YOUR_PLUGIN_ID');
+  if(config){
+    document.getElementById('apiKey').value = config.apiKeyCommon || '';
+    document.getElementById('gpxList').value = config.gpxList || '';
+    document.getElementById('recordId').value = config.recordId || '';
+    document.getElementById('viewId').value = config.viewId || '';
+    document.getElementById('walkKeyword').value = config.walkKeyword || '';
+    document.getElementById('shipKeyword').value = config.shipKeyword || '';
+    document.getElementById('iconBus').value = config.iconBus || '';
+    document.getElementById('iconWalk').value = config.iconWalk || '';
+    document.getElementById('iconShip').value = config.iconShip || '';
+  }
+
+  document.getElementById('saveBtn').onclick = function(){
+    const cfg = {
+      apiKeyCommon: document.getElementById('apiKey').value,
+      gpxList: document.getElementById('gpxList').value,
+      recordId: document.getElementById('recordId').value,
+      viewId: document.getElementById('viewId').value,
+      walkKeyword: document.getElementById('walkKeyword').value,
+      shipKeyword: document.getElementById('shipKeyword').value,
+      iconBus: document.getElementById('iconBus').value,
+      iconWalk: document.getElementById('iconWalk').value,
+      iconShip: document.getElementById('iconShip').value
+    };
+    kintone.plugin.app.setConfig(cfg, function(){
+      alert('設定を保存しました');
+    });
+  };
+})();
+</script>
+</body>
+</html>

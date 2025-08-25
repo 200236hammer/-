@@ -1,42 +1,22 @@
 {
   "manifest_version": 1,
-  "version": "1.0.0",
+  "version": "1.0",
   "type": "APP",
-    "name": {
-        "en": "Map Settings Plugin",
-        "ja": "マップ設定プラグイン"
-    },
-  "description": "kintone のレコード画面・一覧画面でマップ設定を行い、GPXや地点クリック・ルートクリックを管理するプラグインです。",
+  "name": { "en": "Bus Route Plugin", "ja": "バスルート プラグイン" },
+  "description": { "en": "A plugin to display bus routes with GPX and Kintone fields.", "ja": "GPXとkintoneフィールドで路線バスを表示するプラグインです。" },
+  "homepage_url": { "en": "https://example.com/en", "ja": "https://example.com/ja" },
   "icon": "image/icon.png",
-      "homepage_url":{
-        "ja":"http://www.tis2010.jp/",
-        "en":"http://www.tis2010.jp/"
-    },
+  "config": {
+    "html": "html/config.html",
+    "js": ["js/config.js"],
+    "css": ["css/config.css"]
+  },
   "desktop": {
-    "js": [
-      "js/script.js"
-    ],
-    "css": [
-      "css/style.css"
-    ],
-    "html": [
-      "html/index.html"
-    ]
+    "js": ["js/config.js"],
+    "css": []
   },
   "mobile": {
-    "js": [
-      "js/script.js"
-    ],
-    "css": [
-      "css/style.css"
-    ],
-    "html": [
-      "html/index.html"
-    ]
-  },
-  "config": {
-    "html": "html/index.html",
-    "js": ["js/script.js"],
-    "css": ["css/style.css"]
+    "js": ["js/config.js"],
+    "css": []
   }
 }
