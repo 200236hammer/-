@@ -50015,14 +50015,14 @@
     <desc>［降車時刻］13:13</desc>
     <sym>favorite</sym>
   </wpt>
-  <wpt lat="33.82986" lon="130.74146">
-    <name>中尾小学校</name>
-    <desc>［降車時刻］14:22</desc>
-    <sym>favorite</sym>
-  </wpt>
   <wpt lat="33.827329861" lon="130.751690045">
     <name>下上津役</name>
     <desc>［乗車時刻］14:18</desc>
     <sym>generic</sym>
+  </wpt>
+  <wpt lat="33.82986" lon="130.74146">
+    <name>中尾小学校</name>
+    <desc>［降車時刻］14:22</desc>
+    <sym>favorite</sym>
   </wpt>
 </gpx>
