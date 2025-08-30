@@ -33005,22 +33005,22 @@
     <desc>［到着時刻］9:50</desc>
   </wpt>
   <wpt lat="33.9654838" lon="130.956591368">
-    <name>御裳川</name>
+    <name>御裳川〔サンデン交通〕</name>
     <desc>［乗車時刻］10:41</desc>
   </wpt>
   <wpt lat="34.006797097" lon="131.184514761">
     <name>小野田駅</name>
     <desc>［降車時刻］11:59</desc>
   </wpt>
-    <wpt lat="34.006797097" lon="131.184514761">
-    <name>小野田駅</name>
-    <desc>［乗車時刻］12:12</desc>
-  </wpt>
   <wpt lat="34.002879801" lon="131.221600324">
-    <name>際波台東口</name>
-    <desc>［降車時刻］12:17</desc>
+    <name>宇部駅</name>
+    <desc>［乗車時刻］12:27</desc>
   </wpt>
-    <wpt lat="34.002879801" lon="131.221600324">
+  <wpt lat="34.00346497568884" lon="131.2069143367923">
+    <name>際波台東口</name>
+    <desc>［降車時刻］12:17desc>
+  </wpt>
+  <wpt lat="34.003608575" lon="131.206798553">
     <name>際波台東口</name>
     <desc>［乗車時刻］12:22</desc>
   </wpt>
@@ -33044,13 +33044,13 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="33.933270593" lon="131.274441183">
-    <name>山口宇部空港</name>
-    <desc>［降車時刻］13:46</desc>
+    <name>［降車時刻］山口宇部空港</name>
+    <desc>13:46</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="33.933270593" lon="131.274441183">
-    <name>山口宇部空港</name>
-    <desc>［乗車時刻］14:15</desc>
+    <name>［乗車時刻］山口宇部空港</name>
+    <desc>14:15<desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.094470052" lon="131.396480016">
@@ -33059,7 +33059,7 @@
   </wpt>
   <wpt lat="34.094540019" lon="131.396179944">
     <name>新山口駅</name>
-    <desc>［乗車時刻］14:50</desc>
+    <desc>［降車時刻］14:50</desc>
   </wpt>
   <wpt lat="34.165170509" lon="131.457949877">
     <name>湯田温泉</name>
@@ -33086,15 +33086,15 @@
     <desc>［乗車時刻］19:40</desc>
   </wpt>
   <wpt lat="34.033300106" lon="131.836299598">
-    <name>久米</name>
+    <name>久米［周南市］</name>
     <desc>［降車時刻］19:51</desc>
   </wpt>
   <wpt lat="34.03330997" lon="131.836290043">
-    <name>久米</name>
+    <name>久米［周南市］</name>
     <desc>［乗車時刻］6:51</desc>
   </wpt>
   <wpt lat="34.172110035" lon="132.224909943">
-    <name>岩国駅前</name>
+    <name>岩国駅</name>
     <desc>［降車時刻］8:26</desc>
   </wpt>
   <wpt lat="34.172110035" lon="132.224909943">
@@ -33114,7 +33114,7 @@
     <desc>［降車時刻］9:19</desc>
   </wpt>
   <wpt lat="34.206290018" lon="132.218578756">
-    <name>［徒歩］大和橋</name>
+    <name>大和橋</name>
     <desc>［出発時刻］9:19</desc>
   </wpt>
   <wpt lat="34.217789963" lon="132.222819999">
@@ -33185,10 +33185,6 @@
     <name>三原駅</name>
     <desc>［降車時刻］8:23</desc>
   </wpt>
-    <wpt lat="34.400254336" lon="133.082681363">
-    <name>三原駅前</name>
-    <desc>［乗車時刻］9:06</desc>
-  </wpt>
   <wpt lat="34.397899999" lon="133.156390004">
     <name>上福地</name>
     <desc>［降車時刻］9:31</desc>
@@ -33243,11 +33239,11 @@
   </wpt>
   <wpt lat="34.50569" lon="133.53661">
     <name>［徒歩］今井入口</name>
-    <desc>［出発時刻］15:27</desc>
+    <desc>［乗車時刻］15:27</desc>
   </wpt>
   <wpt lat="34.50767" lon="133.55078">
     <name>［徒歩］里庄駅</name>
-    <desc>［到着時刻］15:51</desc>
+    <desc>［降車時刻］15:51</desc>
   </wpt>
   <wpt lat="34.507661767" lon="133.550748825">
     <name>里庄駅</name>
