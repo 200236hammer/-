@@ -69196,24 +69196,24 @@
     <desc>［降車時刻］15:15</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="34.718210137" lon="135.417159945">
-    <name>阪神尼崎［南］</name>
-    <desc>［降車時刻］16:10</desc>
-    <sym>generic</sym>
-  </wpt>
   <wpt lat="34.737362976" lon="135.338087082">
     <name>阪神西宮</name>
     <desc>［乗車時刻］15:39</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="34.752326471" lon="135.448009775">
-    <name>阪急園田［北］</name>
-    <desc>［降車時刻］16:55</desc>
+  <wpt lat="34.718210137" lon="135.417159945">
+    <name>阪神尼崎［南］</name>
+    <desc>［降車時刻］16:10</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.719110467" lon="135.417791605">
     <name>阪神尼崎［北］</name>
     <desc>［乗車時刻］16:28</desc>
+    <sym>generic</sym>
+  </wpt>
+  <wpt lat="34.752326471" lon="135.448009775">
+    <name>阪急園田［北］</name>
+    <desc>［降車時刻］16:55</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.752638087" lon="135.447380394">
