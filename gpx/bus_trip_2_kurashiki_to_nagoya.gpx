@@ -69102,22 +69102,22 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.829017763" lon="134.690872245">
-    <name>姫路駅［北口］</name>
+    <name>姫路駅（北口）</name>
     <desc>［降車時刻］19:36</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.827669619" lon="134.689667411">
-    <name>姫路駅［北口］</name>
+    <name>姫路駅（北口）</name>
     <desc>［乗車時刻］7:00</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.916398685" lon="134.963970557">
-    <name>社［車庫前］</name>
+    <name>社（車庫前）</name>
     <desc>［降車時刻］8:23</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.916389271" lon="134.96394255">
-    <name>社［車庫前］</name>
+    <name>社（車庫前）</name>
     <desc>［乗車時刻］8:50</desc>
     <sym>generic</sym>
   </wpt>
