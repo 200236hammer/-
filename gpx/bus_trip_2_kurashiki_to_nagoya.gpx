@@ -69202,17 +69202,17 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.718210137" lon="135.417159945">
-    <name>阪神尼崎［南］</name>
+    <name>阪神尼崎（南）</name>
     <desc>［降車時刻］16:10</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.719110467" lon="135.417791605">
-    <name>阪神尼崎［北］</name>
+    <name>阪神尼崎（北）</name>
     <desc>［乗車時刻］16:28</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.752326471" lon="135.448009775">
-    <name>阪急園田［北］</name>
+    <name>阪急園田（北）</name>
     <desc>［降車時刻］16:55</desc>
     <sym>generic</sym>
   </wpt>
@@ -69237,7 +69237,7 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.734110114" lon="135.503329933">
-    <name>新大阪駅東口［南］</name>
+    <name>新大阪駅東口（南）</name>
     <desc>［乗車時刻］19:21</desc>
     <sym>generic</sym>
   </wpt>
@@ -69262,18 +69262,18 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.76398" lon="135.6201">
-    <name>寝屋川市駅［西口］</name>
+    <name>寝屋川市駅（西口）</name>
     <desc>［降車時刻］9:27</desc>
+    <sym>generic</sym>
+  </wpt>
+  <wpt lat="34.764020266" lon="135.621188879">
+    <name>寝屋川市駅（東口）</name>
+    <desc>［乗車時刻］9:32</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.74539" lon="135.62961">
     <name>イオンモール四條畷</name>
     <desc>［降車時刻］9:46</desc>
-    <sym>generic</sym>
-  </wpt>
-  <wpt lat="34.764020266" lon="135.621188879">
-    <name>寝屋川市駅［東口］</name>
-    <desc>［乗車時刻］9:32</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.745400076" lon="135.629609674">
@@ -69291,6 +69291,10 @@
     <desc>［乗車時刻］11:30</desc>
     <sym>generic</sym>
   </wpt>
+  <wpt lat="34.6928716960704" lon="135.6971647580842">
+    <name>生駒駅南口</name>
+    <desc>［降車時刻］11:54</desc>
+  </wpt>
   <wpt lat="34.692889958" lon="135.697359927">
     <name>生駒駅南口</name>
     <desc>［乗車時刻］12:42</desc>
@@ -69301,14 +69305,14 @@
     <desc>［降車時刻］13:11</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="34.724387316" lon="135.723403078">
-    <name>［徒歩］学研北生駒駅</name>
-    <desc>［到着時刻］13:26</desc>
-    <sym>generic</sym>
-  </wpt>
   <wpt lat="34.72609892" lon="135.714980364">
     <name>［徒歩］かえで通り中央</name>
     <desc>［出発時刻］13:11</desc>
+    <sym>generic</sym>
+  </wpt>
+  <wpt lat="34.724387316" lon="135.723403078">
+    <name>［徒歩］学研北生駒駅</name>
+    <desc>［到着時刻］13:26</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.6974716" lon="135.750788737">
@@ -69316,14 +69320,14 @@
     <desc>［降車時刻］13:45</desc>
     <sym>generic</sym>
   </wpt>
+  <wpt lat="34.696866939" lon="135.750718117">
+    <name>学園前駅（南）</name>
+    <desc>［乗車時刻］14:06</desc>
+    <sym>generic</sym>
+  </wpt>
   <wpt lat="34.724348556" lon="135.723370314">
     <name>学研北生駒駅</name>
     <desc>［乗車時刻］13:25</desc>
-    <sym>generic</sym>
-  </wpt>
-  <wpt lat="34.696866939" lon="135.750718117">
-    <name>学園前駅［南］</name>
-    <desc>［乗車時刻］14:06</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.684004947" lon="135.826613903">
@@ -69361,6 +69365,10 @@
     <desc>［乗車時刻］9:07</desc>
     <sym>generic</sym>
   </wpt>
+  <wpt lat="34.483555938730724" lon="135.8227156323844">
+    <name>明日香奥山・飛鳥資料館西</name>
+    <desc>［降車時刻］8:21</desc>
+  </wpt>
   <wpt lat="34.483639242" lon="135.795071125">
     <name>橿原神宮前駅東口</name>
     <desc>［降車時刻］9:18</desc>
@@ -69372,12 +69380,12 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.512800499" lon="135.792560577">
-    <name>大和八木駅［南］</name>
+    <name>大和八木駅（南）</name>
     <desc>［降車時刻］9:41</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.512790001" lon="135.792679936">
-    <name>大和八木駅［南］</name>
+    <name>大和八木駅（南）</name>
     <desc>［乗車時刻］11:38</desc>
     <sym>generic</sym>
   </wpt>
@@ -69414,6 +69422,11 @@
     <desc>［降車時刻］20:17</desc>
     <sym>generic</sym>
   </wpt>
+  <wpt lat="33.889512497" lon="136.098976135">
+    <name>熊野市駅前</name>
+    <desc>［乗車時刻］7:07</desc>
+    <sym>generic</sym>
+  </wpt>
   <wpt lat="34.106518766" lon="136.222072839">
     <name>［休憩］国道相賀・海山ＢＣ</name>
     <desc>※約10分休憩
@@ -69431,23 +69444,18 @@
     <desc>［降車時刻］11:12</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="33.889512497" lon="136.098976135">
-    <name>熊野市駅前</name>
-    <desc>［乗車時刻］7:07</desc>
-    <sym>generic</sym>
-  </wpt>
   <wpt lat="34.576535714" lon="136.535702627">
     <name>ＪＲ松阪駅</name>
     <desc>［乗車時刻］12:50</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.6271719" lon="136.515543539">
-    <name>天白［回転場］</name>
+    <name>天白（回転場）</name>
     <desc>［降車時刻］13:22</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.627181917" lon="136.515551023">
-    <name>天白［回転場］</name>
+    <name>天白（回転場）</name>
     <desc>［乗車時刻］13:37</desc>
     <sym>generic</sym>
   </wpt>
@@ -69536,14 +69544,14 @@
     <desc>［降車時刻］19:41</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="35.131132677" lon="136.636924747">
-    <name>神馬の湯</name>
-    <desc>［降車時刻］9:01</desc>
-    <sym>generic</sym>
-  </wpt>
   <wpt lat="35.065828244" lon="136.684218049">
     <name>桑名駅前</name>
     <desc>［乗車時刻］8:03</desc>
+    <sym>generic</sym>
+  </wpt>
+  <wpt lat="35.131132677" lon="136.636924747">
+    <name>神馬の湯</name>
+    <desc>［降車時刻］9:01</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="35.13108003" lon="136.636976302">
@@ -69555,6 +69563,10 @@
     <name>柚井北</name>
     <desc>［降車時刻］10:37</desc>
     <sym>generic</sym>
+  </wpt>
+  <wpt lat="35.145204486556246" lon="136.6391">
+    <name>［徒歩］柚井北</name>
+    <desc>［出発時刻］10:37</desc>
   </wpt>
   <wpt lat="35.15649" lon="136.63478">
     <name>［徒歩］松山グリーンハイツ</name>
@@ -69590,17 +69602,5 @@
     <name>名鉄バスセンター</name>
     <desc>［降車時刻］15:00</desc>
     <sym>generic</sym>
-  </wpt>
-  <wpt lat="34.6928716960704" lon="135.6971647580842">
-    <name>生駒駅南口</name>
-    <desc>［降車時刻］11:54</desc>
-  </wpt>
-  <wpt lat="34.483555938730724" lon="135.8227156323844">
-    <name>明日香奥山・飛鳥資料館西</name>
-    <desc>［降車時刻］8:21</desc>
-  </wpt>
-  <wpt lat="35.145204486556246" lon="136.6391">
-    <name>［徒歩］柚井北</name>
-    <desc>［出発時刻］10:37</desc>
   </wpt>
 </gpx>
