@@ -69291,14 +69291,14 @@
     <desc>［乗車時刻］11:30</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="34.6928716960704" lon="135.6971647580842">
-    <name>生駒駅南口</name>
-    <desc>［降車時刻］11:54</desc>
-  </wpt>
   <wpt lat="34.692889958" lon="135.697359927">
     <name>生駒駅南口</name>
-    <desc>［乗車時刻］12:42</desc>
+    <desc>［降車時刻］11:54</desc>
     <sym>generic</sym>
+  </wpt>
+  <wpt lat="34.6928716960704" lon="135.6971647580842">
+    <name>生駒駅南口</name>
+    <desc>［乗車時刻］12:42</desc>
   </wpt>
   <wpt lat="34.726100023" lon="135.715009868">
     <name>かえで通り中央</name>
