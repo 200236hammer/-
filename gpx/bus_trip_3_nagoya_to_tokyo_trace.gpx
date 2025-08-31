@@ -51905,12 +51905,12 @@
     <sym>generic</sym>
   </wpt>
   <wpt lat="35.08729996" lon="137.153850049">
-    <name>豊田市［西口］</name>
+    <name>豊田市（西口）</name>
     <desc>［降車時刻］11:15</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="35.086988436" lon="137.156504933">
-    <name>豊田市［東口］</name>
+    <name>豊田市（東口）</name>
     <desc>［乗車時刻］12:35</desc>
     <sym>generic</sym>
   </wpt>
