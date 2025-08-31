@@ -69291,15 +69291,15 @@
     <desc>［乗車時刻］11:30</desc>
     <sym>generic</sym>
   </wpt>
-  <wpt lat="34.692889958" lon="135.697359927">
-    <name>生駒駅南口</name>
-    <desc>［降車時刻］11:54</desc>
-    <sym>generic</sym>
-  </wpt>
   <wpt lat="34.6928716960704" lon="135.6971647580842">
     <name>生駒駅南口</name>
-    <desc>［乗車時刻］12:42</desc>
+    <desc>［降車時刻］11:54</desc>
   <sym>generic</sym>
+  </wpt>
+  <wpt lat="34.692889958" lon="135.697359927">
+    <name>生駒駅南口</name>
+    <desc>［乗車時刻］12:42</desc>
+    <sym>generic</sym>
   </wpt>
   <wpt lat="34.726100023" lon="135.715009868">
     <name>かえで通り中央</name>
@@ -69316,6 +69316,11 @@
     <desc>［到着時刻］13:26</desc>
     <sym>generic</sym>
   </wpt>
+  <wpt lat="34.724348556" lon="135.723370314">
+    <name>学研北生駒駅</name>
+    <desc>［乗車時刻］13:25</desc>
+    <sym>generic</sym>
+  </wpt>
   <wpt lat="34.6974716" lon="135.750788737">
     <name>学園前駅</name>
     <desc>［降車時刻］13:45</desc>
@@ -69324,11 +69329,6 @@
   <wpt lat="34.696866939" lon="135.750718117">
     <name>学園前駅（南）</name>
     <desc>［乗車時刻］14:06</desc>
-    <sym>generic</sym>
-  </wpt>
-  <wpt lat="34.724348556" lon="135.723370314">
-    <name>学研北生駒駅</name>
-    <desc>［乗車時刻］13:25</desc>
     <sym>generic</sym>
   </wpt>
   <wpt lat="34.684004947" lon="135.826613903">
