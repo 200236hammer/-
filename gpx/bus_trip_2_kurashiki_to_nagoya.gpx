@@ -69294,7 +69294,7 @@
   <wpt lat="34.6928716960704" lon="135.6971647580842">
     <name>生駒駅南口</name>
     <desc>［降車時刻］11:54</desc>
-  <sym>generic</sym>
+    <sym>generic</sym>
   </wpt>
   <wpt lat="34.692889958" lon="135.697359927">
     <name>生駒駅南口</name>
