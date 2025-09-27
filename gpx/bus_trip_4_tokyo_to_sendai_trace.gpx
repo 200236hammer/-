@@ -34281,12 +34281,10 @@
   <wpt lat="36.371669907" lon="140.475910082">
     <name>水戸駅（北口）</name>
     <desc>［降車時刻］16:51</desc>
-    <sym>favorite</sym>
   </wpt>
   <wpt lat="36.371798407" lon="140.475482941">
     <name>水戸駅（北口）</name>
     <desc>［乗車時刻］12:10</desc>
-    <sym>generic</sym>
   </wpt>
   <wpt lat="36.425220166" lon="140.488129556">
     <name>後台駅入口</name>
@@ -34323,7 +34321,6 @@
   <wpt lat="36.800000096" lon="140.473040119">
     <name>［徒歩］大ぬかり明神</name>
     <desc>［到着時刻］15:49</desc>
-    <sym>generic</sym>
   </wpt>
   <wpt lat="36.800110167" lon="140.472910032">
     <name>大ぬかり明神</name>
