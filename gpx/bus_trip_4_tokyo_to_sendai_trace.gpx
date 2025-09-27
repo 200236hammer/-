@@ -34265,12 +34265,10 @@
   <wpt lat="36.077839599" lon="140.204920471">
     <name>土浦駅（西口）</name>
     <desc>［降車時刻］11:42</desc>
-    <sym>generic</sym>
   </wpt>
   <wpt lat="36.077866696" lon="140.205030441">
     <name>土浦駅（西口）</name>
     <desc>［乗車時刻］12:40</desc>
-    <sym>generic</sym>
   </wpt>
   <wpt lat="36.190790048" lon="140.280860513">
     <name>石岡駅</name>
