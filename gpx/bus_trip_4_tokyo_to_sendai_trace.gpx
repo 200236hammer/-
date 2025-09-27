@@ -34279,12 +34279,12 @@
     <desc>［乗車時刻］15:38</desc>
   </wpt>
   <wpt lat="36.371669907" lon="140.475910082">
-    <name>水戸駅［北口］</name>
+    <name>水戸駅（北口）</name>
     <desc>［降車時刻］16:51</desc>
     <sym>favorite</sym>
   </wpt>
   <wpt lat="36.371798407" lon="140.475482941">
-    <name>水戸駅［北口］</name>
+    <name>水戸駅（北口）</name>
     <desc>［乗車時刻］12:10</desc>
     <sym>generic</sym>
   </wpt>
@@ -34402,11 +34402,11 @@
     <desc>［乗車時刻］17:20</desc>
   </wpt>
   <wpt lat="37.589019941" lon="140.424180329">
-    <name>若宮二丁目［二本松］</name>
+    <name>若宮二丁目（二本松）</name>
     <desc>［降車時刻］17:49</desc>
   </wpt>
   <wpt lat="37.589100707" lon="140.424520969">
-    <name>若宮二丁目［二本松］</name>
+    <name>若宮二丁目（二本松）</name>
     <desc>［乗車時刻］18:00</desc>
   </wpt>
   <wpt lat="37.754919676" lon="140.460980237">
